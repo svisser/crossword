@@ -1,0 +1,5 @@
+-r requirements.txt
+
+flake8==2.2.2
+tox==1.7.2
+Sphinx==1.2.2
