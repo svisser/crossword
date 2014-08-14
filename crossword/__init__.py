@@ -10,6 +10,11 @@ try:
 except NameError:
     pass
 
+try:
+    unicode
+except NameError:
+    unicode = str
+
 
 class Crossword(object):
 
@@ -44,3 +49,11 @@ class Crossword(object):
     def __setitem__(self, index, value):
         x, y = index
         self._data[y][x] = value
+
+    def __str__(self):
+        result = []
+        for row in self:
+            for cell in row:
+                result.append(unicode(cell))
+            result.append(u'\n')
+        return u''.join(result)
