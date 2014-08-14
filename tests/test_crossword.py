@@ -9,3 +9,9 @@ class CrosswordTestCase(unittest.TestCase):
         crossword = Crossword(10, 10)
         crossword[3, 3] = 'A'
         self.assertEqual(crossword[3, 3], 'A')
+
+    def test_crossword_iteration_over_rows_and_columns(self):
+        crossword = Crossword(10, 5)
+        for row in crossword:
+            self.assertEqual(len(row), 10)
+        self.assertEqual(len([row for row in crossword]), 5)

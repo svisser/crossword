@@ -36,8 +36,10 @@ class Crossword(object):
         self.type = None
 
     def __getitem__(self, index):
-        x, y = index
-        return self._data[y][x]
+        if isinstance(index, tuple):
+            x, y = index
+            return self._data[y][x]
+        return self._data[index]
 
     def __setitem__(self, index, value):
         x, y = index
