@@ -46,6 +46,22 @@ class CrosswordMetadata(dict):
         self[name] = value
 
 
+class CrosswordClues(dict):
+
+    def __init__(self):
+        self['across'] = {}
+        self['down'] = {}
+
+    def __getattr__(self, name):
+        try:
+            return self[name]
+        except KeyError:
+            raise AttributeError
+
+    def __setattr__(self, name, value):
+        self[name] = value
+
+
 class Crossword(object):
 
     def __init__(self, width, height):
@@ -53,6 +69,7 @@ class Crossword(object):
         self.height = height
         self._data = [[None for x in range(width)] for x in range(height)]
         self.meta = CrosswordMetadata()
+        self.clues = CrosswordClues()
 
     def __getitem__(self, index):
         if isinstance(index, tuple):

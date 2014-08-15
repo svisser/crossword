@@ -32,3 +32,17 @@ class CrosswordTestCase(unittest.TestCase):
 
         with self.assertRaises(AttributeError):
             self.crossword.meta.doesnotexist
+
+    def test_crossword_can_get_set_clues(self):
+        crossword = Crossword(1, 1)
+        crossword.clues.across[1] = "The clue"
+        self.assertEqual(crossword.clues.across[1], "The clue")
+        self.assertEqual(len(crossword.clues.across), 1)
+
+        self.assertEqual(len(crossword.clues.down), 0)
+        crossword.clues.down[1] = "Other clue"
+        self.assertEqual(crossword.clues.down[1], "Other clue")
+        self.assertEqual(crossword.clues.across[1], "The clue")
+
+        with self.assertRaises(AttributeError):
+            self.crossword.clues.doesnotexist

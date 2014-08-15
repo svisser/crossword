@@ -25,3 +25,13 @@ You can also access all metadata attributes using dictionary syntax as meta is a
 
     creator = puzzle.meta['creator']
     print(puzzle.meta.items())
+
+You can set a clue for an entry:
+
+    puzzle.clues.across[1] = "This is a clue"
+    puzzle.clues.down[2] = "This is a clue"
+
+You can iterate over a crossword's clues by using:
+
+    for number, clue in puzzle.clues.across.items():
+        print(number, clue)
