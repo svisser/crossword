@@ -58,9 +58,6 @@ class CrosswordClues(dict):
         except KeyError:
             raise AttributeError
 
-    def __setattr__(self, name, value):
-        self[name] = value
-
 
 class Crossword(object):
 
