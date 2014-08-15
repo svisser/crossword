@@ -9,6 +9,7 @@ setup(
     author='Simeon Visser',
     author_email='simeonvisser@gmail.com',
     license='MIT',
+    packages=['crossword'],
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
