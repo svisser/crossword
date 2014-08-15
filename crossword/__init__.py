@@ -46,11 +46,18 @@ class CrosswordMetadata(dict):
         self[name] = value
 
 
+class CrosswordDirectionClues(dict):
+
+    def __call__(self):
+        for item in self.items():
+            yield item
+
+
 class CrosswordClues(dict):
 
     def __init__(self):
-        self['across'] = {}
-        self['down'] = {}
+        self['across'] = CrosswordDirectionClues()
+        self['down'] = CrosswordDirectionClues()
 
     def __getattr__(self, name):
         try:

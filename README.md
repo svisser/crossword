@@ -37,7 +37,12 @@ You can set a clue for an entry:
     puzzle.clues.across[1] = "This is a clue"
     puzzle.clues.down[2] = "This is a clue"
 
-You can iterate over a crossword's clues by using:
+You can iterate over a crossword's clues:
 
-    for number, clue in puzzle.clues.across.items():
+    for direction, number, clue in puzzle.clues.all():
+        print(direction, number, clue)
+
+You can iterate over a crossword's clues in a particular direction:
+
+    for number, clue in puzzle.clues.across():
         print(number, clue)
