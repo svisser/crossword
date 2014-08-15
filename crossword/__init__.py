@@ -58,6 +58,12 @@ class CrosswordClues(dict):
         except KeyError:
             raise AttributeError
 
+    def all(self):
+        for number, clue in self.across.items():
+            yield 'across', number, clue
+        for number, clue in self.down.items():
+            yield 'down', number, clue
+
 
 class Crossword(object):
 

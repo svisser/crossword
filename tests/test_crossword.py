@@ -47,6 +47,16 @@ class CrosswordTestCase(unittest.TestCase):
         with self.assertRaises(AttributeError):
             crossword.clues.doesnotexist
 
+    def test_crossword_can_iterate_over_all_clues(self):
+        crossword = Crossword(5, 5)
+        crossword.clues.across[1] = "This is an across clue"
+        crossword.clues.down[2] = "This is a down clue"
+        clues = list(crossword.clues.all())
+        self.assertEqual(clues, [
+            ('across', 1, "This is an across clue"),
+            ('down', 2, "This is a down clue"),
+        ])
+
     def test_crossword_supports_explicit_iteration(self):
         crossword = Crossword(15, 15)
         for y in range(crossword.height):
