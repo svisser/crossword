@@ -91,7 +91,7 @@ class Crossword(object):
                 yield x, y
 
     @property
-    def json(self):
+    def data(self):
         return {
             'width': self.width,
             'height': self.height,

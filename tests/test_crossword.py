@@ -111,11 +111,11 @@ class CrosswordTestCase(unittest.TestCase):
         with self.assertRaises(AttributeError):
             crossword.cells = None
 
-    def test_crossword_can_be_converted_to_json(self):
+    def test_crossword_can_be_converted_to_dictionary(self):
         crossword = Crossword(5, 10)
         crossword.meta.creator = "The author"
         crossword.clues.across[1] = "This is a clue"
-        self.assertEqual(crossword.json, {
+        self.assertEqual(crossword.data, {
             'width': 5,
             'height': 10,
             'cells': [[None] * 5] * 10,
