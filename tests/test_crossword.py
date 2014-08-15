@@ -44,6 +44,13 @@ class CrosswordTestCase(unittest.TestCase):
         self.assertEqual(crossword.clues.down[1], "Other clue")
         self.assertEqual(crossword.clues.across[1], "The clue")
 
+        self.assertEqual(crossword.clues.across, {
+            1: "The clue",
+        })
+        self.assertEqual(crossword.clues.down, {
+            1: "Other clue",
+        })
+
         with self.assertRaises(AttributeError):
             crossword.clues.doesnotexist
 
