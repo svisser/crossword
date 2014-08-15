@@ -17,6 +17,11 @@ You can iterate over rows and cells:
         for cell in row:
             pass
 
+You also iterate using 'cells' (left-to-right, top-to-bottom):
+
+    for x, y in puzzle.cells:
+        print(x, y)
+
 You can access a puzzle's metadata:
 
     creator = puzzle.meta.creator
@@ -24,7 +29,8 @@ You can access a puzzle's metadata:
 You can also access all metadata attributes using dictionary syntax as meta is a dictionary:
 
     creator = puzzle.meta['creator']
-    print(puzzle.meta.items())
+    for key, value in puzzle.meta.items():
+        print(key, value)
 
 You can set a clue for an entry:
 
@@ -35,8 +41,3 @@ You can iterate over a crossword's clues by using:
 
     for number, clue in puzzle.clues.across.items():
         print(number, clue)
-
-You can iterate over a crossword's cells by using (left-to-right, top-to-bottom):
-
-    for x, y in puzzle.cells:
-        print(x, y)
