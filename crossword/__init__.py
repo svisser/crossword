@@ -73,7 +73,9 @@ class Crossword(object):
 
     @property
     def cells(self):
-        return [(x, y) for y in range(self.height) for x in range(self.width)]
+        for y in range(self.height):
+            for x in range(self.width):
+                yield x, y
 
     def __getitem__(self, index):
         if isinstance(index, tuple):
