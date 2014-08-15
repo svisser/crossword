@@ -74,11 +74,15 @@ class CrosswordTestCase(unittest.TestCase):
 
     def test_crossword_can_iterate_over_all_clues(self):
         crossword = Crossword(5, 5)
-        crossword.clues.across[1] = "This is an across clue"
+        crossword.clues.across[1] = "This is an across clue 1"
+        crossword.clues.across[3] = "This is an across clue 3"
+        crossword.clues.across[2] = "This is an across clue 2"
         crossword.clues.down[2] = "This is a down clue"
         clues = list(crossword.clues.all())
         self.assertEqual(clues, [
-            ('across', 1, "This is an across clue"),
+            ('across', 1, "This is an across clue 1"),
+            ('across', 2, "This is an across clue 2"),
+            ('across', 3, "This is an across clue 3"),
             ('down', 2, "This is a down clue"),
         ])
 

@@ -71,7 +71,7 @@ class CrosswordClues(dict):
 
     def all(self):
         for direction in ('across', 'down'):
-            for number, clue in self[direction].items():
+            for number, clue in sorted(self[direction].items()):
                 yield direction, number, clue
 
 
