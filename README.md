@@ -47,3 +47,10 @@ You can iterate over clues in a particular direction:
         print(number, clue)
     for number, clue in puzzle.clues.down():
         print(number, clue)
+
+You can use the following attributes as dictionaries (e.g., convert to JSON):
+
+    puzzle.clues
+    puzzle.clues.across
+    puzzle.clues.down
+    puzzle.meta
