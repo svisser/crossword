@@ -7,8 +7,9 @@ perform common operations on the grid, the words and the clues of the puzzle.
 
 You can create a crossword:
 
-    import crossword as cw
-    puzzle = cw.Crossword(15, 15)
+    from crossword as Crossword
+
+    puzzle = Crossword(15, 15)
 
 You can iterate over rows and cells:
 
