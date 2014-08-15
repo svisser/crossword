@@ -50,6 +50,7 @@ You can iterate over clues in a particular direction:
 
 You can use the following attributes as dictionaries (e.g., convert to JSON):
 
+    puzzle.json (the whole puzzle as dictionary)
     puzzle.clues
     puzzle.clues.across
     puzzle.clues.down

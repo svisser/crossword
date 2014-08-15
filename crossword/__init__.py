@@ -90,6 +90,19 @@ class Crossword(object):
             for x in range(self.width):
                 yield x, y
 
+    @property
+    def json(self):
+        return {
+            'width': self.width,
+            'height': self.height,
+            'cells': self._data,
+            'metadata': self.meta,
+            'clues': {
+                'across': self.clues.across,
+                'down': self.clues.down,
+            }
+        }
+
     def __getitem__(self, index):
         if isinstance(index, tuple):
             x, y = index

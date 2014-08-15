@@ -110,3 +110,36 @@ class CrosswordTestCase(unittest.TestCase):
 
         with self.assertRaises(AttributeError):
             crossword.cells = None
+
+    def test_crossword_can_be_converted_to_json(self):
+        crossword = Crossword(5, 10)
+        crossword.meta.creator = "The author"
+        crossword.clues.across[1] = "This is a clue"
+        self.assertEqual(crossword.json, {
+            'width': 5,
+            'height': 10,
+            'cells': [[None] * 5] * 10,
+            'metadata': {
+                'contributor': None,
+                'coverage': None,
+                'creator': "The author",
+                'date': None,
+                'description': None,
+                'format': None,
+                'identifier': None,
+                'language': None,
+                'publisher': None,
+                'relation': None,
+                'rights': None,
+                'source': None,
+                'subject': None,
+                'title': None,
+                'type': None,
+            },
+            'clues': {
+                'across': {
+                    1: "This is a clue",
+                },
+                'down': {},
+            }
+        })
