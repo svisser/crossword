@@ -46,3 +46,17 @@ class CrosswordTestCase(unittest.TestCase):
 
         with self.assertRaises(AttributeError):
             self.crossword.clues.doesnotexist
+
+    def test_crossword_supports_explicit_iteration(self):
+        crossword = Crossword(15, 15)
+        for y in range(crossword.height):
+            for x in range(crossword.width):
+                self.assertEqual(crossword[x, y], None)
+
+        for x, y in crossword.cells:
+            self.assertEqual(crossword[x, y], None)
+
+        self.assertEqual(len(crossword.cells), crossword.width * crossword.height)
+
+        with self.assertRaises(AttributeError):
+            crossword.cells = None
