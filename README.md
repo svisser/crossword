@@ -20,7 +20,7 @@ You can access a puzzle's metadata:
 
     creator = puzzle.meta.creator
 
-You can also access all metadata attributes as meta is a dictionary:
+You can also access all metadata attributes using dictionary syntax as meta is a dictionary:
 
     creator = puzzle.meta['creator']
     print(puzzle.meta.items())
