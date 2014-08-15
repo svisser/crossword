@@ -29,7 +29,7 @@ You can access a puzzle's metadata:
 You can also access all metadata attributes using dictionary syntax as meta is a dictionary:
 
     creator = puzzle.meta['creator']
-    for key, value in puzzle.meta.items():
+    for key, value in puzzle.meta():
         print(key, value)
 
 You can set a clue for an entry:

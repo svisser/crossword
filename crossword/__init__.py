@@ -36,6 +36,10 @@ class CrosswordMetadata(dict):
         self['title'] = None
         self['type'] = None
 
+    def __call__(self):
+        for item in sorted(self.items()):
+            yield item
+
     def __getattr__(self, name):
         try:
             return self[name]

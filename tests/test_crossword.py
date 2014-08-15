@@ -30,6 +30,24 @@ class CrosswordTestCase(unittest.TestCase):
         self.assertEqual(crossword.meta['creator'], 'C')
         self.assertEqual(getattr(crossword.meta, 'creator'), 'C')
 
+        self.assertEqual(list(crossword.meta()), [
+            ('contributor', None),
+            ('coverage', None),
+            ('creator', 'C'),
+            ('date', None),
+            ('description', None),
+            ('format', None),
+            ('identifier', None),
+            ('language', None),
+            ('publisher', None),
+            ('relation', None),
+            ('rights', None),
+            ('source', None),
+            ('subject', None),
+            ('title', None),
+            ('type', None),
+        ])
+
         with self.assertRaises(AttributeError):
             crossword.meta.doesnotexist
 
