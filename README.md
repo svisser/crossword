@@ -48,7 +48,7 @@ You can iterate over clues in a particular direction:
     for number, clue in puzzle.clues.down():
         print(number, clue)
 
-You can use the following attributes as dictionaries (e.g., convert to JSON):
+You can use the following attributes as dictionaries (e.g., for conversion to JSON):
 
     puzzle.data (the cells, clues and metadata in one dictionary)
     puzzle.clues
