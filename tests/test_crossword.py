@@ -31,7 +31,7 @@ class CrosswordTestCase(unittest.TestCase):
         self.assertEqual(getattr(crossword.meta, 'creator'), 'C')
 
         with self.assertRaises(AttributeError):
-            self.crossword.meta.doesnotexist
+            crossword.meta.doesnotexist
 
     def test_crossword_can_get_set_clues(self):
         crossword = Crossword(1, 1)
@@ -45,7 +45,7 @@ class CrosswordTestCase(unittest.TestCase):
         self.assertEqual(crossword.clues.across[1], "The clue")
 
         with self.assertRaises(AttributeError):
-            self.crossword.clues.doesnotexist
+            crossword.clues.doesnotexist
 
     def test_crossword_supports_explicit_iteration(self):
         crossword = Crossword(15, 15)
