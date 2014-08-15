@@ -16,29 +16,43 @@ except NameError:
     unicode = str
 
 
+class CrosswordMetadata(dict):
+
+    def __init__(self):
+        # Dublin Core Metadata Element Set, Version 1.1
+        self['contributor'] = None
+        self['coverage'] = None
+        self['creator'] = None
+        self['date'] = None
+        self['description'] = None
+        self['format'] = None
+        self['identifier'] = None
+        self['language'] = None
+        self['publisher'] = None
+        self['relation'] = None
+        self['rights'] = None
+        self['source'] = None
+        self['subject'] = None
+        self['title'] = None
+        self['type'] = None
+
+    def __getattr__(self, name):
+        try:
+            return self[name]
+        except KeyError:
+            raise AttributeError
+
+    def __setattr__(self, name, value):
+        self[name] = value
+
+
 class Crossword(object):
 
     def __init__(self, width, height):
         self.width = width
         self.height = height
         self._data = [[None for x in range(width)] for x in range(height)]
-
-        # Dublin Core Metadata Element Set, Version 1.1
-        self.contributor = None
-        self.coverage = None
-        self.creator = None
-        self.date = None
-        self.description = None
-        self.format = None
-        self.identifier = None
-        self.language = None
-        self.publisher = None
-        self.relation = None
-        self.rights = None
-        self.source = None
-        self.subject = None
-        self.title = None
-        self.type = None
+        self.meta = CrosswordMetadata()
 
     def __getitem__(self, index):
         if isinstance(index, tuple):
