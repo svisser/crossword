@@ -20,7 +20,7 @@ You can iterate over rows and cells:
 You also iterate using 'cells' (left-to-right, top-to-bottom):
 
     for x, y in puzzle.cells:
-        print(x, y)
+        print(puzzle[x, y])
 
 You can access a puzzle's metadata:
 
