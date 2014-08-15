@@ -36,7 +36,7 @@ You can iterate over a crossword's clues by using:
     for number, clue in puzzle.clues.across.items():
         print(number, clue)
 
-You can iterate over a crossword's cell by using (left-to-right, top-to-bottom):
+You can iterate over a crossword's cells by using (left-to-right, top-to-bottom):
 
     for x, y in puzzle.cells:
         print(x, y)
