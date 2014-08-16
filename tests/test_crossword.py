@@ -75,8 +75,8 @@ class CrosswordTestCase(unittest.TestCase):
     def test_crossword_can_iterate_over_all_clues(self):
         crossword = Crossword(5, 5)
         crossword.clues.across[1] = "This is an across clue 1"
-        crossword.clues.across[3] = "This is an across clue 3"
         crossword.clues.across[2] = "This is an across clue 2"
+        crossword.clues.across[3] = "This is an across clue 3"
         crossword.clues.down[2] = "This is a down clue"
         clues = list(crossword.clues.all())
         self.assertEqual(clues, [
@@ -189,5 +189,25 @@ class CrosswordTestCase(unittest.TestCase):
                 (1, "Clue 1"),
                 (2, "Clue 2"),
                 (10, "Clue 10"),
+            ]
+        )
+
+    def test_clues_in_both_directions_sorted_with_function(self):
+        crossword = Crossword(15, 15)
+        crossword.clues.across[1] = "Clue 1"
+        crossword.clues.across[10] = "Clue 10"
+        crossword.clues.across[2] = "Clue 2"
+        crossword.clues.down[1] = "Clue 1"
+        crossword.clues.down[10] = "Clue 10"
+        crossword.clues.down[2] = "Clue 2"
+        self.assertEqual(
+            list(crossword.clues.all(sort=int)),
+            [
+                ('across', 1, "Clue 1"),
+                ('across', 2, "Clue 2"),
+                ('across', 10, "Clue 10"),
+                ('down', 1, "Clue 1"),
+                ('down', 2, "Clue 2"),
+                ('down', 10, "Clue 10"),
             ]
         )

@@ -92,9 +92,9 @@ class CrosswordClues(dict):
         except KeyError:
             raise AttributeError
 
-    def all(self):
+    def all(self, *args, **kwargs):
         for direction in self._directions:
-            for number, clue in sorted(self[direction].items()):
+            for number, clue in self[direction](*args, **kwargs):
                 yield direction, number, clue
 
 
