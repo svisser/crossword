@@ -58,7 +58,7 @@ order that they were inserted you can specify sort=None:
 
 You can also specify a function yourself that will be used for sorting:
 
-    puzzle.clues.all(sort=lambda number: ...)
+    puzzle.clues.all(sort=lambda entry: ...)
 
 You can use the following attributes as dictionaries (e.g., for conversion to JSON):
 
