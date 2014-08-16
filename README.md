@@ -73,6 +73,9 @@ You can use the following constants for values that represent block cells and em
     puzzle.block
     puzzle.empty
 
+A value of None may indicate that the default value is used (e.g., "#" for blocks in
+.ipuz puzzles).
+
 ## Reading and writing crosswords
 
 You can read a crossword from an .ipuz file using:
