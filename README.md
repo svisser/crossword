@@ -87,7 +87,7 @@ You can read a crossword from an .ipuz file using:
 
 This requires the "ipuz" package to be installed: http://pypi.python.org/pypi/ipuz.
 
-You can write a crossword to an ipuz dictionary using:
+You can write a crossword to an .ipuz file using:
 
     ipuz_dict = crossword.to_ipuz(puzzle)
 
