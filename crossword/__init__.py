@@ -70,8 +70,13 @@ class CrosswordDirectionClues(collections.OrderedDict):
         super(CrosswordDirectionClues, self).__init__(*args, **kwargs)
 
     def __call__(self, *args, **kwargs):
-        for item in self.items():
-            yield item
+        if kwargs.get('sort') is not None:
+            for item in sorted(self.items(),
+                               key=lambda item: kwargs.get('sort')(item[0])):
+                yield item
+        else:
+            for item in self.items():
+                yield item
 
 
 class CrosswordClues(dict):

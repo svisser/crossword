@@ -177,3 +177,17 @@ class CrosswordTestCase(unittest.TestCase):
                 ("10", "Clue 10"),
             ]
         )
+
+    def test_clues_can_be_sorted_using_function(self):
+        crossword = Crossword(15, 15)
+        crossword.clues.across[1] = "Clue 1"
+        crossword.clues.across[10] = "Clue 10"
+        crossword.clues.across[2] = "Clue 2"
+        self.assertEqual(
+            list(crossword.clues.across(sort=int)),
+            [
+                (1, "Clue 1"),
+                (2, "Clue 2"),
+                (10, "Clue 10"),
+            ]
+        )
