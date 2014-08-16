@@ -91,7 +91,7 @@ class Crossword(object):
                 yield x, y
 
     @property
-    def data(self):
+    def content(self):
         return {
             'width': self.width,
             'height': self.height,

@@ -50,7 +50,7 @@ You can iterate over clues in a particular direction:
 
 You can use the following attributes as dictionaries (e.g., for conversion to JSON):
 
-    puzzle.data (the cells, clues and metadata in one dictionary)
+    puzzle.content (the cells, clues and metadata in one dictionary)
     puzzle.clues
     puzzle.clues.across
     puzzle.clues.down
