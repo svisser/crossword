@@ -106,6 +106,8 @@ class Crossword(object):
         self.meta = CrosswordMetadata()
         self.clues = CrosswordClues()
         self._format = {}
+        self.block = None
+        self.empty = None
 
     @property
     def cells(self):
@@ -172,6 +174,8 @@ def from_ipuz(ipuz_dict):
     crossword.meta.publisher = ipuz_dict.get('publisher')
     crossword.meta.rights = ipuz_dict.get('copyright')
     crossword.meta.title = ipuz_dict.get('title')
+    crossword.block = ipuz_dict.get('block')
+    crossword.empty = ipuz_dict.get('empty')
 
     for number, clue in ipuz_dict['clues']['Across']:
         crossword.clues.across[number] = clue
@@ -207,6 +211,8 @@ def to_ipuz(crossword):
         "publisher": crossword.meta.publisher,
         "uniqueid": crossword.meta.identifier,
         "title": crossword.meta.title,
+        "block": crossword.block,
+        "empty": crossword.empty,
         "puzzle": [
             [cell.puzzle for cell in row] for row in crossword._data
         ],

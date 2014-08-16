@@ -21,6 +21,9 @@ class IPUZUnitTest(unittest.TestCase):
             puzzle.clues.across["2-3"],
             "What bargain hunters enjoy"
         )
+        self.assertIsNone(puzzle.block)
+        self.assertIsNone(puzzle.empty)
+
         self.assertEqual(puzzle.clues.down["1-32"], "To govern")
         self.assertEqual(puzzle[0, 0].puzzle, None)
         self.assertEqual(puzzle[0, 0].solution, None)
@@ -40,6 +43,7 @@ class IPUZUnitTest(unittest.TestCase):
 
         puzzle = crossword.from_ipuz(ipuz_dict)
         self.assertEqual(puzzle.meta.rights, "2011 Puzzazz")
+        self.assertEqual(puzzle.empty, "0")
 
     def test_read_and_write_round_trip(self):
         with open('fixtures/example.ipuz') as f:
