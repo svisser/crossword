@@ -60,14 +60,11 @@ You can use the following attributes as dictionaries (e.g., for conversion to JS
 
 ## Reading and writing crosswords
 
-You can read a crossword from an ipuz file using:
+You can read a crossword from an .ipuz file using:
 
-    with open('puzzle.ipuz') as f:
-        try:
-            ipuz_dict = ipuz.read(f.read())
-        except ipuz.IPUZException:
-            print("Invalid .ipuz file")
+    with open('puzzle.ipuz') as puzzle_file:
+        ipuz_dict = ipuz.read(puzzle_file.read())  # may raise ipuz.IPUZException
 
     puzzle = crossword.from_ipuz(ipuz_dict)
 
-This requires the "ipuz" package to be installed: http://pypi.python.org/pypi/ipuz
+This requires the "ipuz" package to be installed: http://pypi.python.org/pypi/ipuz.
