@@ -71,12 +71,11 @@ class CrosswordDirectionClues(collections.OrderedDict):
 
     def __call__(self, sort=int):
         if sort is not None:
-            for item in sorted(self.items(),
-                               key=lambda item: sort(item[0])):
-                yield item
+            items = sorted(self.items(), key=lambda item: sort(item[0]))
         else:
-            for item in self.items():
-                yield item
+            items = self.items()
+        for item in items:
+            yield item
 
 
 class CrosswordClues(dict):
