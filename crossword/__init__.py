@@ -137,4 +137,10 @@ def from_ipuz(ipuz_dict):
     crossword.meta.publisher = ipuz_dict.get('publisher')
     crossword.meta.rights = ipuz_dict.get('copyright')
     crossword.meta.title = ipuz_dict.get('title')
+
+    for number, clue in ipuz_dict['clues']['Across']:
+        crossword.clues.across[number] = clue
+    for number, clue in ipuz_dict['clues']['Down']:
+        crossword.clues.down[number] = clue
+
     return crossword
