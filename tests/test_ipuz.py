@@ -24,6 +24,13 @@ class IPUZUnitTest(unittest.TestCase):
         self.assertEqual(puzzle[6, 0].puzzle, 1)
         self.assertEqual(puzzle[6, 0].solution, "R")
 
+        puzzle[6, 0]['solution'] = "X"
+        self.assertEqual(puzzle[6, 0].solution, "X")
+        puzzle[6, 0].solution = "Y"
+        self.assertEqual(puzzle[6, 0]['solution'], "Y")
+        setattr(puzzle[6, 0], "solution", "Z")
+        self.assertEqual(puzzle[6, 0].solution, "Z")
+
     def test_read_example_ipuz_fixture(self):
         with open('fixtures/example.ipuz') as f:
             ipuz_dict = ipuz.read(f.read())
