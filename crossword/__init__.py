@@ -129,4 +129,8 @@ def from_ipuz(ipuz_dict):
         ipuz_dict['dimensions']['width'],
         ipuz_dict['dimensions']['height']
     )
+    crossword.meta.creator = ipuz_dict.get('author')
+    crossword.meta.date = ipuz_dict.get('date')
+    crossword.meta.rights = ipuz_dict.get('copyright')
+    crossword.meta.title = ipuz_dict.get('title')
     return crossword
