@@ -68,6 +68,11 @@ You can use the following attributes as dictionaries (e.g., for conversion to JS
     puzzle.clues.down
     puzzle.meta
 
+You can use the following constants for values that represent block cells and empty cells:
+
+    puzzle.block
+    puzzle.empty
+
 ## Reading and writing crosswords
 
 You can read a crossword from an .ipuz file using:
