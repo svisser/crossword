@@ -45,5 +45,9 @@ class IPUZUnitTest(unittest.TestCase):
         puzzle = crossword.from_ipuz(ipuz_dict)
         new_ipuz_dict = crossword.to_ipuz(puzzle)
         for key, value in ipuz_dict.items():
-            if value is not None:
-                self.assertEqual(value, new_ipuz_dict[key])
+            self.assertEqual(value, new_ipuz_dict[key])
+        for key, value in new_ipuz_dict.items():
+            if key in ipuz_dict:
+                self.assertEqual(value, ipuz_dict[key])
+            else:
+                self.assertIsNone(value)
