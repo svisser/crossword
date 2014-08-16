@@ -122,3 +122,11 @@ class Crossword(object):
                 result.append(str(cell) if cell is not None else ' ')
             result.append(u'\n')
         return u''.join(result)
+
+
+def from_ipuz(ipuz_dict):
+    crossword = Crossword(
+        ipuz_dict['dimensions']['width'],
+        ipuz_dict['dimensions']['height']
+    )
+    return crossword
