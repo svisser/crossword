@@ -97,6 +97,7 @@ class Crossword(object):
         self._data = [[None for x in range(width)] for x in range(height)]
         self.meta = CrosswordMetadata()
         self.clues = CrosswordClues()
+        self._format = {}
 
     @property
     def cells(self):
@@ -137,6 +138,20 @@ class Crossword(object):
 
 
 def from_ipuz(ipuz_dict):
+    known_keys = (
+        "dimensions",
+        "editor",
+        "author",
+        "date",
+        "notes",
+        "uniqueid",
+        "publisher",
+        "copyright",
+        "title",
+        "clues",
+        "puzzle",
+        "solution"
+    )
     crossword = Crossword(
         ipuz_dict['dimensions']['width'],
         ipuz_dict['dimensions']['height']
@@ -163,4 +178,37 @@ def from_ipuz(ipuz_dict):
             for x, cell in enumerate(row):
                 crossword[x, y][key] = cell
 
+    for key, value in ipuz_dict.items():
+        if key not in known_keys:
+            crossword._format[key] = value
+
     return crossword
+
+
+def to_ipuz(crossword):
+    ipuz_dict = {
+        "dimensions": {
+            "width": crossword.width,
+            "height": crossword.height,
+        },
+        "author": crossword.meta.creator,
+        "copyright": crossword.meta.rights,
+        "date": crossword.meta.date,
+        "editor": crossword.meta.contributor,
+        "notes": crossword.meta.description,
+        "publisher": crossword.meta.publisher,
+        "uniqueid": crossword.meta.identifier,
+        "title": crossword.meta.title,
+        "puzzle": [
+            [cell.puzzle for cell in row] for row in crossword._data
+        ],
+        "clues": {
+            'Across': [list(item) for item in crossword.clues.across()],
+            'Down': [list(item) for item in crossword.clues.down()],
+        },
+        "solution": [
+            [cell.solution for cell in row] for row in crossword._data
+        ],
+    }
+    ipuz_dict.update(crossword._format)
+    return ipuz_dict

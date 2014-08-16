@@ -37,3 +37,13 @@ class IPUZUnitTest(unittest.TestCase):
 
         puzzle = crossword.from_ipuz(ipuz_dict)
         self.assertEqual(puzzle.meta.rights, "2011 Puzzazz")
+
+    def test_read_and_write_round_trip(self):
+        with open('fixtures/example.ipuz') as f:
+            ipuz_dict = ipuz.read(f.read())
+
+        puzzle = crossword.from_ipuz(ipuz_dict)
+        new_ipuz_dict = crossword.to_ipuz(puzzle)
+        for key, value in ipuz_dict.items():
+            if value is not None:
+                self.assertEqual(value, new_ipuz_dict[key])
