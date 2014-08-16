@@ -61,8 +61,9 @@ class CrosswordDirectionClues(dict):
 class CrosswordClues(dict):
 
     def __init__(self):
-        self['across'] = CrosswordDirectionClues()
-        self['down'] = CrosswordDirectionClues()
+        self._directions = ('across', 'down')
+        for direction in self._directions:
+            self[direction] = CrosswordDirectionClues()
 
     def __getattr__(self, name):
         try:
@@ -71,7 +72,7 @@ class CrosswordClues(dict):
             raise AttributeError
 
     def all(self):
-        for direction in ('across', 'down'):
+        for direction in self._directions:
             for number, clue in sorted(self[direction].items()):
                 yield direction, number, clue
 
