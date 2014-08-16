@@ -50,6 +50,16 @@ You can iterate over clues in a particular direction:
     for number, clue in puzzle.clues.down():
         print(number, clue)
 
+By default these functions iterate over the clues by numerical order
+of the specified clue numbers. If you wish to iterate over the clues in the
+order that they were inserted you can specify sort=None:
+
+    puzzle.clues.all(sort=None)
+
+You can also specify a function yourself that will be used for sorting:
+
+    puzzle.clues.all(sort=lambda number: ...)
+
 You can use the following attributes as dictionaries (e.g., for conversion to JSON):
 
     puzzle.content (the cells, clues and metadata in one dictionary)
