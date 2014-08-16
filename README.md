@@ -5,6 +5,8 @@ Python library for handling crossword puzzles. This library provides a canonical
 that can be used to represent crosswords in your application. It provides a Pythonic way to
 perform common operations on the grid, the words and the clues of the puzzle.
 
+## Creating and modifying crosswords
+
 You can create a crossword:
 
     from crossword import Crossword
@@ -55,3 +57,15 @@ You can use the following attributes as dictionaries (e.g., for conversion to JS
     puzzle.clues.across
     puzzle.clues.down
     puzzle.meta
+
+## Reading and writing crosswords
+
+You can read a crossword from an ipuz file using:
+
+    with open('puzzle.ipuz') as f:
+        try:
+            ipuz_dict = ipuz.read(f.read())
+        except ipuz.IPUZException:
+            print("Invalid .ipuz file")
+
+    puzzle = crossword.from_ipuz(ipuz_dict)
