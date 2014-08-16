@@ -69,10 +69,10 @@ class CrosswordDirectionClues(collections.OrderedDict):
     def __init__(self, *args, **kwargs):
         super(CrosswordDirectionClues, self).__init__(*args, **kwargs)
 
-    def __call__(self, *args, **kwargs):
-        if kwargs.get('sort') is not None:
+    def __call__(self, sort=int):
+        if sort is not None:
             for item in sorted(self.items(),
-                               key=lambda item: kwargs.get('sort')(item[0])):
+                               key=lambda item: sort(item[0])):
                 yield item
         else:
             for item in self.items():
@@ -92,9 +92,9 @@ class CrosswordClues(dict):
         except KeyError:
             raise AttributeError
 
-    def all(self, *args, **kwargs):
+    def all(self, sort=int):
         for direction in self._directions:
-            for number, clue in self[direction](*args, **kwargs):
+            for number, clue in self[direction](sort=sort):
                 yield direction, number, clue
 
 

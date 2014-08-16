@@ -151,11 +151,11 @@ class CrosswordTestCase(unittest.TestCase):
             }
         })
 
-    def test_clues_are_sorted_in_provided_order(self):
+    def test_clues_are_sorted_in_numerical_order(self):
         crossword = Crossword(15, 15)
         crossword.clues.across[1] = "Clue 1"
-        crossword.clues.across[2] = "Clue 2"
         crossword.clues.across[10] = "Clue 10"
+        crossword.clues.across[2] = "Clue 2"
         self.assertEqual(
             list(crossword.clues.across()),
             [
@@ -165,16 +165,17 @@ class CrosswordTestCase(unittest.TestCase):
             ]
         )
 
+    def test_clues_are_sorted_in_provided_order_when_not_sorting(self):
         crossword = Crossword(15, 15)
         crossword.clues.across["1"] = "Clue 1"
-        crossword.clues.across["2"] = "Clue 2"
         crossword.clues.across["10"] = "Clue 10"
+        crossword.clues.across["2"] = "Clue 2"
         self.assertEqual(
-            list(crossword.clues.across()),
+            list(crossword.clues.across(sort=None)),
             [
                 ("1", "Clue 1"),
-                ("2", "Clue 2"),
                 ("10", "Clue 10"),
+                ("2", "Clue 2"),
             ]
         )
 
