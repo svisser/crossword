@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import collections
 import sys
 
 __title__ = 'crossword'
@@ -63,10 +64,13 @@ class CrosswordMetadata(dict):
         self[name] = value
 
 
-class CrosswordDirectionClues(dict):
+class CrosswordDirectionClues(collections.OrderedDict):
 
-    def __call__(self):
-        for item in sorted(self.items()):
+    def __init__(self, *args, **kwargs):
+        super(CrosswordDirectionClues, self).__init__(*args, **kwargs)
+
+    def __call__(self, *args, **kwargs):
+        for item in self.items():
             yield item
 
 
