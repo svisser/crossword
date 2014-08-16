@@ -69,3 +69,5 @@ You can read a crossword from an ipuz file using:
             print("Invalid .ipuz file")
 
     puzzle = crossword.from_ipuz(ipuz_dict)
+
+This requires the "ipuz" package to be installed: http://pypi.python.org/pypi/ipuz
