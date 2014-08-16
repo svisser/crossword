@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import sys
 
 __title__ = 'crossword'
 __version__ = '0.1'
@@ -6,15 +7,14 @@ __author__ = 'Simeon Visser'
 __license__ = 'MIT'
 __copyright__ = 'Copyright 2014 Simeon Visser'
 
-try:
-    range = xrange
-except NameError:
-    pass
+PY3 = sys.version_info[0] == 3
 
-try:
-    unicode
-except NameError:
-    unicode = str
+if PY3:
+    range = range
+    str = str
+else:
+    range = xrange
+    str = unicode
 
 
 class CrosswordMetadata(dict):
@@ -119,6 +119,6 @@ class Crossword(object):
         result = []
         for row in self:
             for cell in row:
-                result.append(unicode(cell) if cell is not None else ' ')
+                result.append(str(cell) if cell is not None else ' ')
             result.append(u'\n')
         return u''.join(result)
