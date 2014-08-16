@@ -17,7 +17,10 @@ class IPUZUnitTest(unittest.TestCase):
         self.assertEqual(puzzle.meta.creator, "Arthur Wynne")
         self.assertEqual(puzzle.meta.date, "12/21/1913")
         self.assertEqual(puzzle.meta.title, "FUN's Word-Cross Puzzle")
-        self.assertEqual(puzzle.clues.across["2-3"], "What bargain hunters enjoy")
+        self.assertEqual(
+            puzzle.clues.across["2-3"],
+            "What bargain hunters enjoy"
+        )
         self.assertEqual(puzzle.clues.down["1-32"], "To govern")
         self.assertEqual(puzzle[0, 0].puzzle, None)
         self.assertEqual(puzzle[0, 0].solution, None)
