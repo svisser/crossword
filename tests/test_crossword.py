@@ -89,9 +89,13 @@ class CrosswordTestCase(unittest.TestCase):
     def test_crossword_can_iterate_over_clues_of_direction(self):
         crossword = Crossword(5, 5)
         crossword.clues.across[1] = "This is an across clue"
+        crossword.clues.across[2] = "This is an across clue"
+        crossword.clues.across[3] = "This is an across clue"
         crossword.clues.down[2] = "This is a down clue"
         self.assertEqual(list(crossword.clues.across()), [
             (1, "This is an across clue"),
+            (2, "This is an across clue"),
+            (3, "This is an across clue"),
         ])
         self.assertEqual(list(crossword.clues.down()), [
             (2, "This is a down clue"),

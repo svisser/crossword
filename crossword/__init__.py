@@ -54,7 +54,7 @@ class CrosswordMetadata(dict):
 class CrosswordDirectionClues(dict):
 
     def __call__(self):
-        for item in self.items():
+        for item in sorted(self.items()):
             yield item
 
 
