@@ -143,4 +143,12 @@ def from_ipuz(ipuz_dict):
     for number, clue in ipuz_dict['clues']['Down']:
         crossword.clues.down[number] = clue
 
+    for x, y in crossword.cells:
+        crossword[x, y] = {}
+
+    for key in ('puzzle', 'solution'):
+        for y, row in enumerate(ipuz_dict.get(key)):
+            for x, cell in enumerate(row):
+                crossword[x, y][key] = cell
+
     return crossword

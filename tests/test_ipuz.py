@@ -19,6 +19,10 @@ class IPUZUnitTest(unittest.TestCase):
         self.assertEqual(puzzle.meta.title, "FUN's Word-Cross Puzzle")
         self.assertEqual(puzzle.clues.across["2-3"], "What bargain hunters enjoy")
         self.assertEqual(puzzle.clues.down["1-32"], "To govern")
+        self.assertEqual(puzzle[0, 0]['puzzle'], None)
+        self.assertEqual(puzzle[0, 0]['solution'], None)
+        self.assertEqual(puzzle[6, 0]['puzzle'], 1)
+        self.assertEqual(puzzle[6, 0]['solution'], "R")
 
     def test_read_example_ipuz_fixture(self):
         with open('fixtures/example.ipuz') as f:
