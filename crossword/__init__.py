@@ -17,6 +17,15 @@ else:
     str = unicode
 
 
+class CrosswordCell(dict):
+
+    def __getattr__(self, name):
+        try:
+            return self[name]
+        except KeyError:
+            raise AttributeError
+
+
 class CrosswordMetadata(dict):
 
     def __init__(self):
@@ -144,7 +153,7 @@ def from_ipuz(ipuz_dict):
         crossword.clues.down[number] = clue
 
     for x, y in crossword.cells:
-        crossword[x, y] = {}
+        crossword[x, y] = CrosswordCell()
 
     for key in ('puzzle', 'solution'):
         for y, row in enumerate(ipuz_dict.get(key)):
