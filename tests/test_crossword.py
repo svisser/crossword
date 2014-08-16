@@ -106,7 +106,10 @@ class CrosswordTestCase(unittest.TestCase):
         for x, y in crossword.cells:
             self.assertEqual(crossword[x, y], None)
 
-        self.assertEqual(len(list(crossword.cells)), crossword.width * crossword.height)
+        self.assertEqual(
+            len(list(crossword.cells)),
+            crossword.width * crossword.height
+        )
 
         with self.assertRaises(AttributeError):
             crossword.cells = None
