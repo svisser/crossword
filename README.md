@@ -7,7 +7,7 @@ perform common operations on the grid, the words and the clues of the puzzle.
 
 You can create a crossword:
 
-    from crossword as Crossword
+    from crossword import Crossword
 
     puzzle = Crossword(15, 15)
 
