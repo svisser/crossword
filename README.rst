@@ -5,6 +5,10 @@ crossword
     :target: https://pypi.python.org/pypi/crossword/
     :alt: Latest Version
 
+.. image:: https://pypip.in/download/crossword/badge.svg
+    :target: https://pypi.python.org/pypi/crossword/
+    :alt: Downloads
+
 .. image:: https://pypip.in/py_versions/crossword/badge.svg
     :target: https://pypi.python.org/pypi/crossword/
     :alt: Supported Python versions
