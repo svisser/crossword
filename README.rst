@@ -12,12 +12,17 @@ Installation
 
 You can install using pip:
 
-    pip install crossword
+.. code-block:: bash
+
+    $ pip install crossword
+
 
 Creating and modifying crosswords
 ---------------------------------
 
 You can create a crossword:
+
+.. code:: python
 
     from crossword import Crossword
 
