@@ -7,6 +7,12 @@ perform common operations on the grid, the words and the clues of the puzzle.
 
 The library handles reading and writing to .ipuz files.
 
+## Installation
+
+You can install using pip:
+
+    pip install crossword
+
 ## Creating and modifying crosswords
 
 You can create a crossword:
