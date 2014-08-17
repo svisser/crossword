@@ -3,5 +3,6 @@
 flake8==2.2.2
 tox==1.7.2
 Sphinx==1.2.2
+wheel==0.24.0
 
 ipuz==0.1.1
