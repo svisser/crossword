@@ -5,6 +5,8 @@ Python library for handling crossword puzzles. This library provides a canonical
 that can be used to represent crosswords in your application. It provides a Pythonic way to
 perform common operations on the grid, the words and the clues of the puzzle.
 
+The library handles reading and writing to .ipuz files.
+
 ## Creating and modifying crosswords
 
 You can create a crossword:
