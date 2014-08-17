@@ -30,17 +30,23 @@ You can create a crossword:
 
 You can iterate over rows and cells:
 
+.. code:: python
+
     for row in puzzle:
         for cell in row:
             pass
 
 You also iterate using 'cells' (left-to-right, top-to-bottom):
 
+.. code:: python
+
     for x, y in puzzle.cells:
         print(puzzle[x, y])
 
 You can store a string as cell value but you can also specify attributes
 to store multiple values (such as cell content, styling and other cell propeties):
+
+.. code:: python
 
     puzzle[x, y] = "A"
 
@@ -50,24 +56,34 @@ to store multiple values (such as cell content, styling and other cell propeties
 
 You can access a metadata attribute:
 
+.. code:: python
+
     creator = puzzle.meta.creator
 
 You can iterate over metadata:
+
+.. code:: python
 
     for key, value in puzzle.meta():
         print(key, value)
 
 You can set a clue for an entry:
 
+.. code:: python
+
     puzzle.clues.across[1] = "This is a clue"
     puzzle.clues.down[2] = "This is a clue"
 
 You can iterate over all clues (first Across, then Down):
 
+.. code:: python
+
     for direction, number, clue in puzzle.clues.all():
         print(direction, number, clue)
 
 You can iterate over clues in a particular direction:
+
+.. code:: python
 
     for number, clue in puzzle.clues.across():
         print(number, clue)
@@ -78,13 +94,19 @@ By default these functions iterate over the clues by numerical order
 of the specified clue numbers. If you wish to iterate over the clues in the
 order that they were inserted you can specify sort=None:
 
+.. code:: python
+
     puzzle.clues.all(sort=None)
 
 You can also specify a function yourself that will be used for sorting:
 
+.. code:: python
+
     puzzle.clues.all(sort=lambda entry: ...)
 
 You can use the following attributes as dictionaries (e.g., for conversion to JSON):
+
+.. code:: python
 
     puzzle.content (the cells, clues and metadata in one dictionary)
     puzzle.clues
@@ -93,6 +115,8 @@ You can use the following attributes as dictionaries (e.g., for conversion to JS
     puzzle.meta
 
 You can use the following constants for values that represent block cells and empty cells:
+
+.. code:: python
 
     puzzle.block
     puzzle.empty
@@ -105,6 +129,8 @@ Reading and writing crosswords
 
 You can read a crossword from an .ipuz file using:
 
+.. code:: python
+
     with open('puzzle.ipuz') as puzzle_file:
         ipuz_dict = ipuz.read(puzzle_file.read())  # may raise ipuz.IPUZException
 
@@ -113,6 +139,8 @@ You can read a crossword from an .ipuz file using:
 This requires the "ipuz" package to be installed: http://pypi.python.org/pypi/ipuz.
 
 You can write a crossword to an .ipuz file using:
+
+.. code:: python
 
     ipuz_dict = crossword.to_ipuz(puzzle)
 
