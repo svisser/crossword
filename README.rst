@@ -7,13 +7,15 @@ perform common operations on the grid, the words and the clues of the puzzle.
 
 The library handles reading and writing to .ipuz files.
 
-## Installation
+Installation
+------------
 
 You can install using pip:
 
     pip install crossword
 
-## Creating and modifying crosswords
+Creating and modifying crosswords
+---------------------------------
 
 You can create a crossword:
 
@@ -93,7 +95,8 @@ You can use the following constants for values that represent block cells and em
 A value of None may indicate that the default value is used (e.g., "#" for blocks in
 .ipuz puzzles).
 
-## Reading and writing crosswords
+Reading and writing crosswords
+------------------------------
 
 You can read a crossword from an .ipuz file using:
 
