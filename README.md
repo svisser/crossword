@@ -24,18 +24,14 @@ You also iterate using 'cells' (left-to-right, top-to-bottom):
     for x, y in puzzle.cells:
         print(puzzle[x, y])
 
-You can store a string as cell value but you can also use a dictionary to
-store multiple values (such as cell content, styling and other cell propeties):
+You can store a string as cell value but you can also specify attributes
+to store multiple values (such as cell content, styling and other cell propeties):
 
     puzzle[x, y] = "A"
 
-    puzzle[x, y] = {
-        'puzzle': " ",
-        'solution': "A",
-        'style': {
-            'background-color': 'red',
-        }
-    }
+    puzzle[x, y].puzzle = " "
+    puzzle[x, y].solution = "A"
+    puzzle[x, y].style = {'background-color': 'red'}
 
 You can access a metadata attribute:
 
