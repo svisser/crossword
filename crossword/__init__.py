@@ -161,7 +161,7 @@ def from_ipuz(ipuz_dict):
         "title",
         "clues",
         "puzzle",
-        "solution"
+        "solution",
     )
     crossword = Crossword(
         ipuz_dict['dimensions']['width'],
