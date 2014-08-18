@@ -216,10 +216,12 @@ def to_ipuz(crossword):
             "height": crossword.height,
         },
         "puzzle": [
-            [getattr(cell, "puzzle", None) for cell in row] for row in crossword._data
+            [getattr(cell, "puzzle", None) for cell in row]
+            for row in crossword._data
         ],
         "solution": [
-            [getattr(cell, "solution", None) for cell in row] for row in crossword._data
+            [getattr(cell, "solution", None) for cell in row]
+            for row in crossword._data
         ],
     }
     if crossword.meta.creator is not None:

@@ -7,12 +7,12 @@ class CrosswordTestCase(unittest.TestCase):
 
     def test_crossword_width_needs_to_be_one_or_more(self):
         with self.assertRaises(ValueError) as cm:
-            crossword = Crossword(0, 10)
+            Crossword(0, 10)
         self.assertEqual(str(cm.exception), "Width needs to be at least one")
 
     def test_crossword_height_needs_to_be_one_or_more(self):
         with self.assertRaises(ValueError) as cm:
-            crossword = Crossword(10, 0)
+            Crossword(10, 0)
         self.assertEqual(str(cm.exception), "Height needs to be at least one")
 
     def test_crossword_set_and_get_element(self):
