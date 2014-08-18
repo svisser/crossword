@@ -81,8 +81,12 @@ class CrosswordDirectionClues(collections.OrderedDict):
 
 class CrosswordClues(dict):
 
+    ACROSS = 'across'
+
+    DOWN = 'down'
+
     def __init__(self):
-        self._directions = ('across', 'down')
+        self._directions = (CrosswordClues.ACROSS, CrosswordClues.DOWN)
         for direction in self._directions:
             self[direction] = CrosswordDirectionClues()
 
