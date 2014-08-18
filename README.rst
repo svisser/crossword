@@ -197,7 +197,8 @@ There are also various tests included. You can run these with:
 This will run the tests in various Python versions to ensure that the library
 works properly in each of them.
 
-Ideas for new features:
+Ideas for new features
+----------------------
 
 * Add support for Across Lite .puz files (https://github.com/alexdej/puzpy)
 * Add support for Crossword Compiler .ccw files (http://crossword-compiler.com)
