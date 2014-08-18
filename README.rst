@@ -36,6 +36,28 @@ You can install using pip:
     $ pip install crossword
 
 
+Contributing
+------------
+
+Contributions are very welcome. If you've found an issue or if you'd like to
+suggest a feature please open a ticket at: http://github.com/svisser/crossword/issues.
+
+You can install the packages needed for developing and testing this library by running:
+
+.. code-block:: bash
+
+    $ pip install -r dev-requirements.txt
+
+There are also various tests included. You can run these with:
+
+.. code-block:: bash
+
+    $ tox
+
+This will run the tests in various Python versions to ensure that the library
+works properly in each of them.
+
+
 Creating and modifying crosswords
 ---------------------------------
 
