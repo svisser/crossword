@@ -101,6 +101,10 @@ class CrosswordClues(dict):
 class Crossword(object):
 
     def __init__(self, width, height):
+        if width <= 0:
+            raise ValueError("Width needs to be at least one")
+        if height <= 0:
+            raise ValueError("Height needs to be at least one")
         self.width = width
         self.height = height
         self._data = [[None for x in range(width)] for x in range(height)]
