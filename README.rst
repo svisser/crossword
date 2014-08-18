@@ -43,6 +43,10 @@ Contributing
 Contributions are very welcome. If you've found an issue or if you'd like to
 suggest a feature please open a ticket at: http://github.com/svisser/crossword/issues.
 
+You should create a virtual environment first before installing the
+packages as described below. This keeps the dependencies separate from other Python packages
+on your system. See: https://pypi.python.org/pypi/virtualenv.
+
 You can install the packages needed for developing and testing this library by running:
 
 .. code-block:: bash
