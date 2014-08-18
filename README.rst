@@ -76,6 +76,10 @@ You can access a metadata attribute:
 
     creator = puzzle.meta.creator
 
+Each puzzle has the attributes specified in the Dublin Core Metadata Element Set,
+Version 1.1, which include creator, date, description, identifier and title. By default
+these attributes have the value None.
+
 You can iterate over metadata:
 
 .. code:: python
