@@ -58,3 +58,12 @@ class IPUZUnitTest(unittest.TestCase):
                 self.assertEqual(value, ipuz_dict[key])
             else:
                 self.assertIsNone(value)
+
+    def test_read_example_may_not_have_solution(self):
+        with open('fixtures/example.ipuz') as f:
+            ipuz_dict = ipuz.read(f.read())
+
+        del ipuz_dict["solution"]
+        puzzle = crossword.from_ipuz(ipuz_dict)
+        self.assertEqual(puzzle[0, 0].puzzle, 1)
+        self.assertEqual(puzzle[0, 0].solution, None)

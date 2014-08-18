@@ -195,9 +195,10 @@ def from_ipuz(ipuz_dict):
         crossword[x, y] = CrosswordCell()
 
     for key in ('puzzle', 'solution'):
-        for y, row in enumerate(ipuz_dict.get(key)):
-            for x, cell in enumerate(row):
-                crossword[x, y][key] = cell
+        entry = ipuz_dict.get(key)
+        for y in range(crossword.height):
+            for x in range(crossword.width):
+                crossword[x, y][key] = entry[y][x] if entry is not None else None
 
     for key, value in ipuz_dict.items():
         if key not in known_keys:
