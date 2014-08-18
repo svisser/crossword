@@ -158,7 +158,10 @@ class CrosswordTestCase(unittest.TestCase):
                     1: "This is a clue",
                 },
                 'down': {},
-            }
+            },
+            'block': None,
+            'empty': None,
+            'format': {},
         })
 
     def test_clues_are_sorted_in_numerical_order(self):

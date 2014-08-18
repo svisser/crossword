@@ -114,7 +114,7 @@ class Crossword(object):
         self._data = [[None for _ in range(width)] for _ in range(height)]
         self.meta = CrosswordMetadata()
         self.clues = CrosswordClues()
-        self._format = {}
+        self._format = {}  # file format-specific data
         self.block = None
         self.empty = None
 
@@ -134,7 +134,10 @@ class Crossword(object):
             'clues': {
                 'across': self.clues.across,
                 'down': self.clues.down,
-            }
+            },
+            'block': self.block,
+            'empty': self.empty,
+            'format': self._format,
         }
 
     def __getitem__(self, index):
