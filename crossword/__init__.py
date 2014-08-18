@@ -186,9 +186,9 @@ def from_ipuz(ipuz_dict):
     crossword.block = ipuz_dict.get('block')
     crossword.empty = ipuz_dict.get('empty')
 
-    for number, clue in ipuz_dict['clues']['Across']:
+    for number, clue in ipuz_dict.get('clues', {}).get('Across', []):
         crossword.clues.across[number] = clue
-    for number, clue in ipuz_dict['clues']['Down']:
+    for number, clue in ipuz_dict.get('clues', {}).get('Down', []):
         crossword.clues.down[number] = clue
 
     for x, y in crossword.cells:
