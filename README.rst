@@ -26,6 +26,7 @@ crossword, though variations within reason will also be supported.
 
 The library handles reading and writing to .ipuz files.
 
+
 Installation
 ------------
 
