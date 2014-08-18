@@ -107,7 +107,7 @@ class Crossword(object):
             raise ValueError("Height needs to be at least one")
         self.width = width
         self.height = height
-        self._data = [[None for x in range(width)] for x in range(height)]
+        self._data = [[None for _ in range(width)] for _ in range(height)]
         self.meta = CrosswordMetadata()
         self.clues = CrosswordClues()
         self._format = {}
