@@ -210,32 +210,47 @@ def from_ipuz(ipuz_dict):
 
 def to_ipuz(crossword):
     ipuz_dict = {
+        "version": "http://ipuz.org/v1",
         "dimensions": {
             "width": crossword.width,
             "height": crossword.height,
         },
-        "author": crossword.meta.creator,
-        "copyright": crossword.meta.rights,
-        "date": crossword.meta.date,
-        "editor": crossword.meta.contributor,
-        "notes": crossword.meta.description,
-        "publisher": crossword.meta.publisher,
-        "uniqueid": crossword.meta.identifier,
-        "title": crossword.meta.title,
         "puzzle": [
-            [cell.puzzle for cell in row] for row in crossword._data
+            [getattr(cell, "puzzle", None) for cell in row] for row in crossword._data
         ],
-        "clues": {
-            'Across': [list(item) for item in crossword.clues.across()],
-            'Down': [list(item) for item in crossword.clues.down()],
-        },
         "solution": [
-            [cell.solution for cell in row] for row in crossword._data
+            [getattr(cell, "solution", None) for cell in row] for row in crossword._data
         ],
     }
+    if crossword.meta.creator is not None:
+        ipuz_dict["author"] = crossword.meta.creator
+    if crossword.meta.rights is not None:
+        ipuz_dict["copyright"] = crossword.meta.rights
+    if crossword.meta.date is not None:
+        ipuz_dict["date"] = crossword.meta.date
+    if crossword.meta.contributor is not None:
+        ipuz_dict["editor"] = crossword.meta.contributor
+    if crossword.meta.description is not None:
+        ipuz_dict["notes"] = crossword.meta.description
+    if crossword.meta.publisher is not None:
+        ipuz_dict["publisher"] = crossword.meta.publisher
+    if crossword.meta.identifier is not None:
+        ipuz_dict["uniqueid"] = crossword.meta.identifier
+    if crossword.meta.title is not None:
+        ipuz_dict["title"] = crossword.meta.title
     if crossword.block is not None:
         ipuz_dict["block"] = crossword.block
     if crossword.empty is not None:
         ipuz_dict["empty"] = crossword.empty
+
+    across_clues = [list(item) for item in crossword.clues.across()]
+    down_clues = [list(item) for item in crossword.clues.down()]
+    if across_clues or down_clues:
+        ipuz_dict["clues"] = {}
+        if across_clues:
+            ipuz_dict["clues"]['Across'] = across_clues
+        if down_clues:
+            ipuz_dict["clues"]['Down'] = down_clues
+
     ipuz_dict.update(crossword._format)
     return ipuz_dict

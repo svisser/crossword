@@ -88,3 +88,16 @@ class IPUZUnitTest(unittest.TestCase):
         new_ipuz_dict = crossword.to_ipuz(puzzle)
         self.assertNotIn("empty", new_ipuz_dict)
         self.assertNotIn("block", new_ipuz_dict)
+
+    def test_empty_puzzles_has_mostly_mandatory_ipuz_elements(self):
+        puzzle = crossword.Crossword(15, 15)
+        ipuz_dict = crossword.to_ipuz(puzzle)
+        self.assertEqual(ipuz_dict, {
+            "version": "http://ipuz.org/v1",
+            "dimensions": {
+                "width": 15,
+                "height": 15,
+            },
+            "puzzle": [[None for _ in range(15)] for _ in range(15)],
+            "solution": [[None for _ in range(15)] for _ in range(15)]
+        })
