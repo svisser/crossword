@@ -167,6 +167,8 @@ def from_ipuz(ipuz_dict):
         "publisher",
         "copyright",
         "title",
+        "block",
+        "empty",
         "clues",
         "puzzle",
         "solution",
@@ -220,8 +222,6 @@ def to_ipuz(crossword):
         "publisher": crossword.meta.publisher,
         "uniqueid": crossword.meta.identifier,
         "title": crossword.meta.title,
-        "block": crossword.block,
-        "empty": crossword.empty,
         "puzzle": [
             [cell.puzzle for cell in row] for row in crossword._data
         ],
@@ -233,5 +233,9 @@ def to_ipuz(crossword):
             [cell.solution for cell in row] for row in crossword._data
         ],
     }
+    if crossword.block is not None:
+        ipuz_dict["block"] = crossword.block
+    if crossword.empty is not None:
+        ipuz_dict["empty"] = crossword.empty
     ipuz_dict.update(crossword._format)
     return ipuz_dict

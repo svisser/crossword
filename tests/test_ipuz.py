@@ -77,3 +77,14 @@ class IPUZUnitTest(unittest.TestCase):
         puzzle = crossword.from_ipuz(ipuz_dict)
         self.assertEqual(list(puzzle.clues.across()), [])
         self.assertEqual(list(puzzle.clues.down()), [])
+
+    def test_write_to_ipuz_only_includes_empty_block(self):
+        with open('fixtures/example.ipuz') as f:
+            ipuz_dict = ipuz.read(f.read())
+
+        puzzle = crossword.from_ipuz(ipuz_dict)
+        puzzle.block = None
+        puzzle.empty = None
+        new_ipuz_dict = crossword.to_ipuz(puzzle)
+        self.assertNotIn("empty", new_ipuz_dict)
+        self.assertNotIn("block", new_ipuz_dict)
