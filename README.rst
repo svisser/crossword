@@ -41,7 +41,7 @@ Contributing
 ------------
 
 Contributions are very welcome. If you've found an issue or if you'd like to
-suggest a feature please open a ticket at: http://github.com/svisser/crossword/issues.
+suggest a feature please open a ticket at: https://github.com/svisser/crossword/issues.
 
 You should create a virtual environment first before installing the
 packages as described below. This keeps the dependencies separate from other Python packages
@@ -186,7 +186,7 @@ You can read a crossword from an .ipuz file using:
 
     puzzle = crossword.from_ipuz(ipuz_dict)
 
-This requires the "ipuz" package to be installed: http://pypi.python.org/pypi/ipuz.
+This requires the "ipuz" package to be installed: https://pypi.python.org/pypi/ipuz.
 
 You can write a crossword to an .ipuz file using:
 
