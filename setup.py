@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='crossword',
-    version='0.1.1',
+    version='0.1.2',
     description='Python library for handling crossword puzzles',
     url='https://github.com/svisser/crossword',
     author='Simeon Visser',
