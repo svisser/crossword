@@ -154,7 +154,7 @@ class Crossword(object):
         result = []
         for row in self:
             for cell in row:
-                result.append(str(cell) if cell is not None else ' ')
+                result.append(str(cell) if cell is not None else u' ')
             result.append(u'\n')
         return u''.join(result)
 
