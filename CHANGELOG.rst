@@ -1,8 +1,8 @@
 Changelog
 =========
 
-0.1.1 (upcoming)
-----------------
+0.1.1 (August 19, 2014)
+-----------------------
 
 * Fixed reading .ipuz puzzles that do not have a solution element.
 * Fixed reading .ipuz puzzles that do not have Across and/or Down clues.
