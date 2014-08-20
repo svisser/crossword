@@ -154,9 +154,9 @@ class Crossword(object):
         result = []
         for row in self:
             for cell in row:
-                result.append(str(cell) if cell is not None else u' ')
-            result.append(u'\n')
-        return u''.join(result)
+                result.append(str(cell) if cell is not None else str(' '))
+            result.append(str('\n'))
+        return str('').join(result)
 
 
 def from_ipuz(ipuz_dict):

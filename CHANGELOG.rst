@@ -4,7 +4,7 @@ Changelog
 0.1.2 (upcoming)
 ----------------
 
-* ...
+* Added support for Python 3.2.
 
 0.1.1 (August 19, 2014)
 -----------------------
