@@ -25,6 +25,11 @@ class CrosswordTestCase(unittest.TestCase):
             "Did you mean puzzle[3, 3].cell = ...?"
         )
 
+    def test_crossword_can_set_dict_as_cell(self):
+        crossword = Crossword(3, 3)
+        crossword[0, 0] = {'cell': 'A'}
+        self.assertEqual(crossword[0, 0].cell, 'A')
+
     def test_crossword_can_set_attributes_as_needed(self):
         crossword = Crossword(10, 10)
         crossword[3, 3].cell = 'A'

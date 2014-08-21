@@ -26,11 +26,6 @@ class CrosswordCell(dict):
     def __setattr__(self, name, value):
         self[name] = value
 
-    def __str__(self):
-        if 'cell' in self:
-            return self.cell
-        return ' '
-
 
 class CrosswordMetadata(dict):
 
@@ -159,6 +154,8 @@ class Crossword(object):
                 "You cannot assign to a cell directly. "
                 "Did you mean puzzle[{}, {}].cell = ...?".format(x, y)
             )
+        elif not isinstance(value, CrosswordCell):
+            value = CrosswordCell(value)
         self._data[y][x] = value
 
     def __str__(self):
