@@ -27,8 +27,8 @@ class CrosswordCell(dict):
         self[name] = value
 
     def __eq__(self, other):
-        if isinstance(other, basestring) and 'puzzle' in self:
-            return other == self.puzzle
+        if isinstance(other, basestring) and 'cell' in self:
+            return other == self.cell
         return super(CrosswordCell, self).__eq__(other)
 
 
@@ -150,7 +150,7 @@ class Crossword(object):
     def __setitem__(self, index, value):
         x, y = index
         if isinstance(value, basestring):
-            self._data[y][x].puzzle = value
+            self._data[y][x].cell = value
         else:
             self._data[y][x] = value
 

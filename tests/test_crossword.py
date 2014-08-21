@@ -22,19 +22,19 @@ class CrosswordTestCase(unittest.TestCase):
 
     def test_crossword_can_set_attributes_as_needed(self):
         crossword = Crossword(10, 10)
-        crossword[3, 3].puzzle = 'A'
-        self.assertEqual(crossword[3, 3].puzzle, 'A')
+        crossword[3, 3].cell = 'A'
+        self.assertEqual(crossword[3, 3].cell, 'A')
 
     def test_crossword_can_set_consecutive_values(self):
         crossword = Crossword(3, 3)
-        crossword[0, 0].puzzle = 'A'
+        crossword[0, 0].cell = 'A'
         crossword[0, 0] = 'B'
         self.assertEqual(crossword[0, 0], 'B')
-        self.assertEqual(crossword[0, 0].puzzle, 'B')
+        self.assertEqual(crossword[0, 0].cell, 'B')
         crossword[0, 0] = 'C'
-        crossword[0, 0].puzzle = 'D'
+        crossword[0, 0].cell = 'D'
         self.assertEqual(crossword[0, 0], 'D')
-        self.assertEqual(crossword[0, 0].puzzle, 'D')
+        self.assertEqual(crossword[0, 0].cell, 'D')
 
     def test_crossword_iteration_over_rows_and_columns(self):
         crossword = Crossword(10, 5)
