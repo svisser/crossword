@@ -25,6 +25,13 @@ class CrosswordTestCase(unittest.TestCase):
         crossword[3, 3].puzzle = 'A'
         self.assertEqual(crossword[3, 3].puzzle, 'A')
 
+    def test_crossword_can_set_consecutive_values(self):
+        crossword = Crossword(3, 3)
+        crossword[0, 0].puzzle = 'A'
+        crossword[0, 0] = 'B'
+        self.assertEqual(crossword[0, 0], 'B')
+        self.assertEqual(crossword[0, 0].puzzle, 'B')
+
     def test_crossword_iteration_over_rows_and_columns(self):
         crossword = Crossword(10, 5)
         for row in crossword:

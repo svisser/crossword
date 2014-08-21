@@ -7,9 +7,11 @@ PY3 = sys.version_info[0] == 3
 
 if PY3:
     range = range
+    basestring = str
     str = str
 else:
     range = xrange
+    basestring = (unicode, str)
     str = unicode
 
 
@@ -23,6 +25,11 @@ class CrosswordCell(dict):
 
     def __setattr__(self, name, value):
         self[name] = value
+
+    def __eq__(self, other):
+        if isinstance(other, basestring) and 'puzzle' in self:
+            return other == self.puzzle
+        return super(CrosswordCell, self).__eq__(other)
 
 
 class CrosswordMetadata(dict):
@@ -142,7 +149,10 @@ class Crossword(object):
 
     def __setitem__(self, index, value):
         x, y = index
-        self._data[y][x] = value
+        if isinstance(value, basestring):
+            self._data[y][x].puzzle = value
+        else:
+            self._data[y][x] = value
 
     def __str__(self):
         result = []
