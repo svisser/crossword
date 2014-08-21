@@ -35,6 +35,8 @@ class CrosswordCell(dict):
 class CrosswordMetadata(dict):
 
     def __init__(self):
+        super(CrosswordMetadata, self).__init__()
+
         # Dublin Core Metadata Element Set, Version 1.1
         self['contributor'] = None
         self['coverage'] = None
@@ -87,6 +89,7 @@ class CrosswordClues(dict):
     DOWN = 'down'
 
     def __init__(self):
+        super(CrosswordClues, self).__init__()
         self._directions = (CrosswordClues.ACROSS, CrosswordClues.DOWN)
         for direction in self._directions:
             self[direction] = CrosswordDirectionClues()
