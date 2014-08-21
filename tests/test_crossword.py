@@ -20,6 +20,11 @@ class CrosswordTestCase(unittest.TestCase):
         crossword[3, 3] = 'A'
         self.assertEqual(crossword[3, 3], 'A')
 
+    def test_crossword_can_set_attributes_as_needed(self):
+        crossword = Crossword(10, 10)
+        crossword[3, 3].puzzle = 'A'
+        self.assertEqual(crossword[3, 3].puzzle, 'A')
+
     def test_crossword_iteration_over_rows_and_columns(self):
         crossword = Crossword(10, 5)
         for row in crossword:
@@ -115,10 +120,10 @@ class CrosswordTestCase(unittest.TestCase):
         crossword = Crossword(15, 15)
         for y in range(crossword.height):
             for x in range(crossword.width):
-                self.assertEqual(crossword[x, y], None)
+                self.assertEqual(crossword[x, y], {})
 
         for x, y in crossword.cells:
-            self.assertEqual(crossword[x, y], None)
+            self.assertEqual(crossword[x, y], {})
 
         self.assertEqual(
             len(list(crossword.cells)),
@@ -135,7 +140,7 @@ class CrosswordTestCase(unittest.TestCase):
         self.assertEqual(crossword.content, {
             'width': 5,
             'height': 10,
-            'cells': [[None] * 5] * 10,
+            'cells': [[{}] * 5] * 10,
             'metadata': {
                 'contributor': None,
                 'coverage': None,
