@@ -21,7 +21,8 @@ class CrosswordTestCase(unittest.TestCase):
             crossword[3, 3] = 'X'
         self.assertEqual(
             str(cm.exception),
-            "You cannot assign to a cell directly"
+            "You cannot assign to a cell directly. "
+            "Did you mean puzzle[3, 3].cell = ...?"
         )
 
     def test_crossword_can_set_attributes_as_needed(self):

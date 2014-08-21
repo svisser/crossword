@@ -155,7 +155,10 @@ class Crossword(object):
     def __setitem__(self, index, value):
         x, y = index
         if not isinstance(value, dict):
-            raise ValueError("You cannot assign to a cell directly")
+            raise ValueError(
+                "You cannot assign to a cell directly. "
+                "Did you mean puzzle[{}, {}].cell = ...?".format(x, y)
+            )
         self._data[y][x] = value
 
     def __str__(self):
