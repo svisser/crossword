@@ -70,9 +70,15 @@ to store multiple values (such as cell content, styling and other cell propertie
 
     puzzle[x, y] = "A"
 
-    puzzle[x, y].puzzle = " "
+    puzzle[x, y].cell = " "
     puzzle[x, y].solution = "A"
     puzzle[x, y].style = {'background-color': 'red'}
+
+You need to use the 'cell' attribute to retrieve a puzzle's cell content:
+
+.. code:: python
+
+    print(puzzle[x, y].cell)
 
 You can access a metadata attribute:
 
