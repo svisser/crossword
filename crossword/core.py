@@ -149,12 +149,9 @@ class Crossword(object):
 
     def __setitem__(self, index, value):
         x, y = index
-        if not isinstance(value, dict):
-            raise ValueError(
-                "You cannot assign to a cell directly. "
-                "Did you mean puzzle[{}, {}].cell = ...?".format(x, y)
-            )
-        elif not isinstance(value, CrosswordCell):
+        if isinstance(value, basestring):
+            value = {'cell': value}
+        if not isinstance(value, CrosswordCell):
             value = CrosswordCell(value)
         self._data[y][x] = value
 

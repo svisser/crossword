@@ -15,15 +15,11 @@ class CrosswordTestCase(unittest.TestCase):
             Crossword(10, 0)
         self.assertEqual(str(cm.exception), "Height needs to be at least one")
 
-    def test_crossword_set_and_get_element(self):
+    def test_crossword_set_and_get_element_as_string(self):
         crossword = Crossword(10, 10)
-        with self.assertRaises(ValueError) as cm:
-            crossword[3, 3] = 'X'
-        self.assertEqual(
-            str(cm.exception),
-            "You cannot assign to a cell directly. "
-            "Did you mean puzzle[3, 3].cell = ...?"
-        )
+        crossword[3, 3] = 'X'
+        self.assertIsInstance(crossword[3, 3], dict)
+        self.assertEqual(crossword[3, 3].cell, "X")
 
     def test_crossword_can_set_dict_as_cell(self):
         crossword = Crossword(3, 3)
