@@ -180,7 +180,8 @@ suggest a feature please open a ticket at: https://github.com/svisser/crossword/
 
 You should create a virtual environment first before installing the
 packages as described below. This keeps the dependencies separate from other Python packages
-on your system. See: https://pypi.python.org/pypi/virtualenv.
+on your system. See: https://pypi.python.org/pypi/virtualenv and, optionally,
+https://pypi.python.org/pypi/virtualenvwrapper.
 
 You can install the packages needed for developing and testing this library by running:
 
