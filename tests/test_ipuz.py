@@ -68,6 +68,16 @@ class IPUZUnitTest(unittest.TestCase):
         self.assertEqual(puzzle[0, 0].puzzle, 1)
         self.assertEqual(puzzle[0, 0].solution, None)
 
+    def test_read_example_may_not_have_all_cells_defined(self):
+        with open('fixtures/example.ipuz') as f:
+            ipuz_dict = ipuz.read(f.read())
+
+        ipuz_dict["puzzle"] = [row[:5] for row in ipuz_dict["puzzle"]]
+        ipuz_dict["solution"] = [row[:5] for row in ipuz_dict["solution"]]
+        puzzle = crossword.from_ipuz(ipuz_dict)
+        self.assertEqual(puzzle[10, 10].puzzle, None)
+        self.assertEqual(puzzle[10, 10].solution, None)
+
     def test_read_example_may_not_have_clues(self):
         with open('fixtures/example.ipuz') as f:
             ipuz_dict = ipuz.read(f.read())
