@@ -26,6 +26,11 @@ class CrosswordCell(dict):
     def __setattr__(self, name, value):
         self[name] = value
 
+    def __str__(self):
+        if 'cell' in self:
+            return self.cell
+        return ' '
+
 
 class CrosswordMetadata(dict):
 
@@ -157,6 +162,6 @@ class Crossword(object):
         result = []
         for row in self:
             for cell in row:
-                result.append(str(cell if cell is not None else ' '))
+                result.append(str(cell if cell else ' '))
             result.append(str(os.linesep))
         return str('').join(result)
