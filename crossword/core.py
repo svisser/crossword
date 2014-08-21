@@ -151,4 +151,3 @@ class Crossword(object):
                 result.append(str(cell if cell is not None else ' '))
             result.append(str(os.linesep))
         return str('').join(result)
-
