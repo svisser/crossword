@@ -64,7 +64,7 @@ You also iterate using 'cells' (left-to-right, top-to-bottom):
         print(puzzle[x, y])
 
 You can store a string as cell value but you can also specify attributes
-to store multiple values (such as cell content, styling and other cell propeties):
+to store multiple values (such as cell content, styling and other cell properties):
 
 .. code:: python
 
