@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import collections
+import os
 import sys
 
 PY3 = sys.version_info[0] == 3
@@ -148,6 +149,6 @@ class Crossword(object):
         for row in self:
             for cell in row:
                 result.append(str(cell) if cell is not None else str(' '))
-            result.append(str('\n'))
+            result.append(str(os.linesep))
         return str('').join(result)
 
