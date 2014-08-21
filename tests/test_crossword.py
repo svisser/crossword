@@ -31,6 +31,10 @@ class CrosswordTestCase(unittest.TestCase):
         crossword[0, 0] = 'B'
         self.assertEqual(crossword[0, 0], 'B')
         self.assertEqual(crossword[0, 0].puzzle, 'B')
+        crossword[0, 0] = 'C'
+        crossword[0, 0].puzzle = 'D'
+        self.assertEqual(crossword[0, 0], 'D')
+        self.assertEqual(crossword[0, 0].puzzle, 'D')
 
     def test_crossword_iteration_over_rows_and_columns(self):
         crossword = Crossword(10, 5)
