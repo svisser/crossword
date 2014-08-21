@@ -26,11 +26,6 @@ class CrosswordCell(dict):
     def __setattr__(self, name, value):
         self[name] = value
 
-    def __eq__(self, other):
-        if isinstance(other, basestring) and 'cell' in self:
-            return other == self.cell
-        return super(CrosswordCell, self).__eq__(other)
-
 
 class CrosswordMetadata(dict):
 
@@ -154,10 +149,9 @@ class Crossword(object):
 
     def __setitem__(self, index, value):
         x, y = index
-        if isinstance(value, basestring):
-            self._data[y][x].cell = value
-        else:
-            self._data[y][x] = value
+        if not isinstance(value, dict):
+            raise ValueError("You cannot assign to a cell directly")
+        self._data[y][x] = value
 
     def __str__(self):
         result = []

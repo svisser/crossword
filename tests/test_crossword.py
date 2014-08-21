@@ -17,8 +17,12 @@ class CrosswordTestCase(unittest.TestCase):
 
     def test_crossword_set_and_get_element(self):
         crossword = Crossword(10, 10)
-        crossword[3, 3] = 'A'
-        self.assertEqual(crossword[3, 3], 'A')
+        with self.assertRaises(ValueError) as cm:
+            crossword[3, 3] = 'X'
+        self.assertEqual(
+            str(cm.exception),
+            "You cannot assign to a cell directly"
+        )
 
     def test_crossword_can_set_attributes_as_needed(self):
         crossword = Crossword(10, 10)
@@ -28,13 +32,9 @@ class CrosswordTestCase(unittest.TestCase):
     def test_crossword_can_set_consecutive_values(self):
         crossword = Crossword(3, 3)
         crossword[0, 0].cell = 'A'
-        crossword[0, 0] = 'B'
-        self.assertEqual(crossword[0, 0], 'B')
+        self.assertEqual(crossword[0, 0].cell, 'A')
+        crossword[0, 0].cell = 'B'
         self.assertEqual(crossword[0, 0].cell, 'B')
-        crossword[0, 0] = 'C'
-        crossword[0, 0].cell = 'D'
-        self.assertEqual(crossword[0, 0], 'D')
-        self.assertEqual(crossword[0, 0].cell, 'D')
 
     def test_crossword_iteration_over_rows_and_columns(self):
         crossword = Crossword(10, 5)
