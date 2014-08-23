@@ -93,6 +93,10 @@ class CrosswordClues(dict):
 
 class Crossword(object):
 
+    IPUZ = "ipuz"
+
+    PUZ = "puz"
+
     def __init__(self, width=15, height=15):
         if width <= 0:
             raise ValueError("Width needs to be at least one")

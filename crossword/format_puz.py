@@ -14,7 +14,7 @@ def from_puz(puzzle):
         "solution",
     )
     result = Crossword(puzzle.width, puzzle.height)
-    result._format_identifier = "puz"
+    result._format_identifier = Crossword.PUZ
     result.meta.creator = puzzle.author
     result.meta.rights = puzzle.copyright
     result.meta.title = puzzle.title
@@ -60,7 +60,7 @@ def to_puz(crossword):
             cells.append(value)
     result.solution = ''.join(cells)
 
-    if crossword._format_identifier == "puz":
+    if crossword._format_identifier == Crossword.PUZ:
         for key, value in crossword._format.items():
             setattr(result, key, value)
 
