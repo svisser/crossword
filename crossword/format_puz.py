@@ -9,6 +9,7 @@ def from_puz(puzzle):
     result.meta.creator = puzzle.author
     result.meta.rights = puzzle.copyright
     result.meta.title = puzzle.title
+
     rows = []
     for i in range(0, len(puzzle.solution), puzzle.width):
         rows.append(puzzle.solution[i:i + puzzle.width])
@@ -16,7 +17,13 @@ def from_puz(puzzle):
         for x, cell in enumerate(row):
             result[x, y].cell = None
             result[x, y].solution = cell
+
     result.block = '.'
+
+    for attr in dir(puzzle):
+        if not callable(getattr(puzzle, attr)):
+            result._format[attr] = getattr(puzzle, attr)
+
     return result
 
 
