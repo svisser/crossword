@@ -11,13 +11,14 @@ def from_puz(puzzle):
     result.meta.title = puzzle.title
     rows = []
     for i in range(0, len(puzzle.solution), puzzle.width):
-        if not puzzle.is_solution_locked():
-            rows.append(puzzle.solution[i:i + puzzle.width])
-        else:
-            rows.append([None] * puzzle.width)
+        rows.append(puzzle.solution[i:i + puzzle.width])
     for y, row in enumerate(rows):
         for x, cell in enumerate(row):
-            result[x, y].cell = cell
+            result[x, y].cell = None
+            if not puzzle.is_solution_locked():
+                result[x, y].solution = cell
+            else:
+                result[x, y].solution = None
     result.block = '.'
     return result
 
