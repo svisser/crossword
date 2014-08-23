@@ -1,18 +1,8 @@
 # -*- coding: utf-8 -*-
 import collections
 import os
-import sys
 
-PY3 = sys.version_info[0] == 3
-
-if PY3:
-    range = range
-    basestring = str
-    str = str
-else:
-    range = xrange
-    basestring = (unicode, str)
-    str = unicode
+from crossword.compat import basestring, range, str
 
 
 class CrosswordCell(dict):
