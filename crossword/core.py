@@ -105,6 +105,7 @@ class Crossword(object):
         ]
         self.meta = CrosswordMetadata()
         self.clues = CrosswordClues()
+        self._format_identifier = None  # file format-specific identifier
         self._format = {}  # file format-specific data
         self.block = None
         self.empty = None

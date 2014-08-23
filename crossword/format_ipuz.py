@@ -23,6 +23,7 @@ def from_ipuz(ipuz_dict):
         ipuz_dict['dimensions']['width'],
         ipuz_dict['dimensions']['height']
     )
+    crossword._format_identifier = "ipuz"
     crossword.meta.contributor = ipuz_dict.get('editor')
     crossword.meta.creator = ipuz_dict.get('author')
     crossword.meta.date = ipuz_dict.get('date')
@@ -103,5 +104,6 @@ def to_ipuz(crossword):
         if down_clues:
             ipuz_dict["clues"]['Down'] = down_clues
 
-    ipuz_dict.update(crossword._format)
+    if crossword._format_identifier == "ipuz":
+        ipuz_dict.update(crossword._format)
     return ipuz_dict
