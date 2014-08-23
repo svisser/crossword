@@ -25,4 +25,5 @@ class PUZUnitTest(unittest.TestCase):
         puzzle = crossword.from_puz(puz_object)
         for x, y in puzzle.cells:
             self.assertEqual(puzzle[x, y].cell, None)
-            self.assertEqual(puzzle[x, y].solution, None)
+        self.assertEqual(puzzle[0, 0].solution, 'B')
+        self.assertEqual(puzzle[14, 14].solution, 'N')

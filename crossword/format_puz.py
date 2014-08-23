@@ -15,10 +15,7 @@ def from_puz(puzzle):
     for y, row in enumerate(rows):
         for x, cell in enumerate(row):
             result[x, y].cell = None
-            if not puzzle.is_solution_locked():
-                result[x, y].solution = cell
-            else:
-                result[x, y].solution = None
+            result[x, y].solution = cell
     result.block = '.'
     return result
 
