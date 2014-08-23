@@ -151,6 +151,7 @@ class CrosswordTestCase(unittest.TestCase):
         crossword.meta.creator = "The author"
         crossword.clues.across[1] = "This is a clue"
         self.assertEqual(crossword.content, {
+            'type': None,
             'width': 5,
             'height': 10,
             'cells': [[{}] * 5] * 10,

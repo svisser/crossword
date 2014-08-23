@@ -129,6 +129,7 @@ class Crossword(object):
             },
             'block': self.block,
             'empty': self.empty,
+            'type': self._format_identifier,
             'format': self._format,
         }
 
