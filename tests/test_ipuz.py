@@ -111,3 +111,10 @@ class IPUZUnitTest(unittest.TestCase):
             "puzzle": [[None for _ in range(15)] for _ in range(15)],
             "solution": [[None for _ in range(15)] for _ in range(15)]
         })
+
+    def test_from_ipuz_raise_exception_for_non_crossword(self):
+        ipuz_dict = {
+            "kind": ["http://ipuz.org/sudoku#1"],
+        }
+        with self.assertRaises(crossword.CrosswordException):
+            crossword.from_ipuz(ipuz_dict)

@@ -1,8 +1,13 @@
 # -*- coding: utf-8 -*-
 from crossword.core import Crossword, CrosswordCell
+from crossword.exceptions import CrosswordException
 
 
 def from_ipuz(ipuz_dict):
+    for kind in ipuz_dict['kind']:
+        if not kind.startswith("http://ipuz.org/crossword"):
+            raise CrosswordException
+
     known_keys = (
         "dimensions",
         "editor",
