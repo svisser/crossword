@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from puz import Puzzle
 
 from crossword.compat import range
