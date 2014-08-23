@@ -8,4 +8,4 @@ __license__ = 'MIT'
 __copyright__ = 'Copyright 2014 Simeon Visser'
 
 from crossword.core import Crossword
-from crossword.ipuz import from_ipuz, to_ipuz
+from crossword.format_ipuz import from_ipuz, to_ipuz
