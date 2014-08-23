@@ -9,3 +9,4 @@ __copyright__ = 'Copyright 2014 Simeon Visser'
 
 from crossword.core import Crossword
 from crossword.format_ipuz import from_ipuz, to_ipuz
+from crossword.format_puz import from_puz, to_puz

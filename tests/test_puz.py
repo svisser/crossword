@@ -18,3 +18,4 @@ class PUZUnitTest(unittest.TestCase):
             puzzle.meta.creator,
             'by Ian Livengood / Edited by Brad Wilber '
         )
+        self.assertEqual(puzzle.block, '.')
