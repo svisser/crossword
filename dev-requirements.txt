@@ -6,3 +6,5 @@ Sphinx==1.2.2
 wheel==0.24.0
 
 ipuz==0.1.1
+
+-e git+https://github.com/svisser/puzpy.git@fix_tests_for_python3#egg=puzpy_python3_fix
