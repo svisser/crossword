@@ -5,6 +5,14 @@ from crossword.core import Crossword
 
 
 def from_puz(puzzle):
+    known_keys = (
+        "width",
+        "height",
+        "author",
+        "copyright"
+        "title",
+        "solution",
+    )
     result = Crossword(puzzle.width, puzzle.height)
     result.meta.creator = puzzle.author
     result.meta.rights = puzzle.copyright
@@ -21,11 +29,32 @@ def from_puz(puzzle):
     result.block = '.'
 
     for attr in dir(puzzle):
-        if not callable(getattr(puzzle, attr)):
-            result._format[attr] = getattr(puzzle, attr)
+        if attr in known_keys:
+            continue
+        if attr.startswith('__'):
+            continue
+        if callable(getattr(puzzle, attr)):
+            continue
+        result._format[attr] = getattr(puzzle, attr)
 
     return result
 
 
 def to_puz(crossword):
-    pass
+    result = Puzzle()
+    result.width = crossword.width
+    result.height = crossword.height
+    result.author = crossword.meta.creator
+    result.copyright = crossword.meta.rights
+    result.title = crossword.meta.title
+
+    cells = []
+    for row in crossword:
+        for cell in row:
+            cells.append(cell.solution)
+    result.solution = ''.join(cells)
+
+    for key, value in crossword._format.items():
+        setattr(result, key, value)
+
+    return result
