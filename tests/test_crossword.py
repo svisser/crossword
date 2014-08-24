@@ -245,7 +245,7 @@ class CrosswordTestCase(unittest.TestCase):
             ]
         )
 
-    def test_invalid_coordinates_raise_exception(self):
+    def test_invalid_cell_coordinates_raises_exception(self):
         crossword = Crossword(15, 15)
         with self.assertRaises(IndexError) as cm:
             crossword[-5, -5]
@@ -268,4 +268,13 @@ class CrosswordTestCase(unittest.TestCase):
         self.assertEqual(
             str(cm.exception),
             "Invalid cell coordinates: (3, 3)"
+        )
+
+    def test_invalid_row_coordinate_raises_exception(self):
+        crossword = Crossword(3, 3)
+        with self.assertRaises(IndexError) as cm:
+            crossword[-5]
+        self.assertEqual(
+            str(cm.exception),
+            "Invalid row coordinate: -5"
         )

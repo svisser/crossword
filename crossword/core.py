@@ -145,6 +145,8 @@ class Crossword(object):
             if not (0 <= y < self.height):
                 raise IndexError("Invalid cell coordinates: {}".format(index))
             return self._data[y][x]
+        if not (0 <= index < self.height):
+            raise IndexError("Invalid row coordinate: {}".format(index))
         return self._data[index]
 
     def __setitem__(self, index, value):
