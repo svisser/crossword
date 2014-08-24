@@ -261,3 +261,11 @@ class CrosswordTestCase(unittest.TestCase):
             str(cm.exception),
             "Invalid cell coordinates: (-5, -5)"
         )
+
+        crossword = Crossword(3, 3)
+        with self.assertRaises(IndexError) as cm:
+            crossword[3, 3]
+        self.assertEqual(
+            str(cm.exception),
+            "Invalid cell coordinates: (3, 3)"
+        )
