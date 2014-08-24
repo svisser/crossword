@@ -244,3 +244,12 @@ class CrosswordTestCase(unittest.TestCase):
                 ('down', 10, "Clue 10"),
             ]
         )
+
+    def test_invalid_coordinates_raise_exception(self):
+        crossword = Crossword(15, 15)
+        with self.assertRaises(IndexError):
+            crossword[-5, -5]
+
+        crossword = Crossword(3, 3)
+        with self.assertRaises(IndexError):
+            crossword[-5, -5]

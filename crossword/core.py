@@ -140,6 +140,10 @@ class Crossword(object):
     def __getitem__(self, index):
         if isinstance(index, tuple):
             x, y = index
+            if not (0 <= x <= self.width):
+                raise IndexError
+            if not (0 <= y <= self.height):
+                raise IndexError
             return self._data[y][x]
         return self._data[index]
 
