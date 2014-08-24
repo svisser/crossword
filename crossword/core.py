@@ -141,9 +141,9 @@ class Crossword(object):
         if isinstance(index, tuple):
             x, y = index
             if not (0 <= x <= self.width):
-                raise IndexError
+                raise IndexError("Invalid cell coordinates: {}".format(index))
             if not (0 <= y <= self.height):
-                raise IndexError
+                raise IndexError("Invalid cell coordinates: {}".format(index))
             return self._data[y][x]
         return self._data[index]
 
