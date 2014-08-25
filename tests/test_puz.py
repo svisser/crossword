@@ -19,6 +19,8 @@ class PUZUnitTest(unittest.TestCase):
             'by Ian Livengood / Edited by Brad Wilber '
         )
         self.assertEqual(puzzle.block, '.')
+        self.assertEqual(puzzle.clues.across[67], 'Jupiter, but not Zeus')
+        self.assertEqual(puzzle.clues.down[60], 'Cadenza automaker')
 
     def test_read_puz_locked_puzzle(self):
         puz_object = puz.read('fixtures/nyt_locked.puz')
