@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import collections
+
 from puz import Puzzle
 
 from crossword.compat import range
@@ -12,6 +14,7 @@ def from_puz(puzzle):
         "author",
         "copyright"
         "title",
+        "clues",
         "solution",
     )
     result = Crossword(puzzle.width, puzzle.height)
@@ -90,6 +93,16 @@ def to_puz(crossword):
                 value = cell.solution
             cells.append(value)
     result.solution = ''.join(cells)
+
+    result.clues = []
+    clues = collections.defaultdict(list)
+    for number, clue in crossword.clues.across(sort=None):
+        clues[number].append(clue)
+    for number, clue in crossword.clues.down(sort=None):
+        clues[number].append(clue)
+    for number, clues in sorted(clues.items()):
+        for clue in clues:
+            result.clues.append(clue)
 
     if crossword._format_identifier == Crossword.PUZ:
         for key, value in crossword._format.items():
