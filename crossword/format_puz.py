@@ -23,6 +23,7 @@ def from_puz(puzzle):
     result.meta.creator = puzzle.author
     result.meta.rights = puzzle.copyright
     result.meta.title = puzzle.title
+    result.block = '.'
 
     rows = []
     for i in range(0, len(puzzle.solution), puzzle.width):
@@ -61,8 +62,6 @@ def from_puz(puzzle):
             if is_xy_down:
                 result.clues.down[number] = puzzle.clues[clue_index]
                 clue_index += 1
-
-    result.block = '.'
 
     for attr in dir(puzzle):
         if attr in known_keys:
