@@ -43,13 +43,13 @@ def from_puz(puzzle):
         end = (y + 1 < puzzle.height and result[x, y + 1].solution != '.')
         return start and end
 
-    clue_index = 0
-    number = 0
     for y, row in enumerate(rows):
         for x, cell in enumerate(row):
             result[x, y].cell = None
             result[x, y].solution = cell
 
+    clue_index = 0
+    number = 0
     for y, row in enumerate(rows):
         for x, cell in enumerate(row):
             is_xy_across = is_across(x, y)
