@@ -3,6 +3,7 @@ import collections
 
 from puz import Puzzle
 
+from crossword import CrosswordException
 from crossword.compat import range
 from crossword.core import Crossword
 
@@ -96,10 +97,16 @@ def to_puz(crossword):
 
     result.clues = []
     clues = collections.defaultdict(list)
-    for number, clue in crossword.clues.across(sort=None):
-        clues[number].append(clue)
-    for number, clue in crossword.clues.down(sort=None):
-        clues[number].append(clue)
+    try:
+        for number, clue in crossword.clues.across(sort=int):
+            clues[number].append(clue)
+    except ValueError:
+        raise CrosswordException
+    try:
+        for number, clue in crossword.clues.down(sort=int):
+            clues[number].append(clue)
+    except ValueError:
+        raise CrosswordException
     for number, clues in sorted(clues.items()):
         for clue in clues:
             result.clues.append(clue)

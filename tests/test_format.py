@@ -23,3 +23,11 @@ class FormatUnitTest(unittest.TestCase):
         puzzle = crossword.from_ipuz(ipuz_dict)
         puz_object = crossword.to_puz(puzzle)
         self.assertFalse(hasattr(puz_object, "kind"))
+
+    def test_to_puz_only_works_if_numbering_system_matches(self):
+        with open('fixtures/first.ipuz') as f:
+            ipuz_dict = ipuz.read(f.read())
+
+        puzzle = crossword.from_ipuz(ipuz_dict)
+        with self.assertRaises(crossword.CrosswordException):
+            puz_object = crossword.to_puz(puzzle)
