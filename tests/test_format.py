@@ -30,4 +30,4 @@ class FormatUnitTest(unittest.TestCase):
 
         puzzle = crossword.from_ipuz(ipuz_dict)
         with self.assertRaises(crossword.CrosswordException):
-            puz_object = crossword.to_puz(puzzle)
+            crossword.to_puz(puzzle)
