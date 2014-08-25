@@ -8,7 +8,7 @@ import puz
 class PUZUnitTest(unittest.TestCase):
 
     def test_read_puz_to_crossword(self):
-        puz_object = puz.read('fixtures/chronicle_20140815.puz')
+        puz_object = puz.read('fixtures/puz/chronicle_20140815.puz')
         puzzle = crossword.from_puz(puz_object)
         self.assertEqual(
             puzzle.meta.title,
@@ -23,7 +23,7 @@ class PUZUnitTest(unittest.TestCase):
         self.assertEqual(puzzle.clues.down[60], 'Cadenza automaker')
 
     def test_read_puz_locked_puzzle(self):
-        puz_object = puz.read('fixtures/nyt_locked.puz')
+        puz_object = puz.read('fixtures/puz/nyt_locked.puz')
         puzzle = crossword.from_puz(puz_object)
         for x, y in puzzle.cells:
             self.assertEqual(puzzle[x, y].cell, None)
@@ -31,7 +31,7 @@ class PUZUnitTest(unittest.TestCase):
         self.assertEqual(puzzle[14, 14].solution, 'N')
 
     def test_read_and_write_round_trip(self):
-        puz_object = puz.read('fixtures/chronicle_20140815.puz')
+        puz_object = puz.read('fixtures/puz/chronicle_20140815.puz')
         puzzle = crossword.from_puz(puz_object)
         new_puz_object = crossword.to_puz(puzzle)
         for attr in dir(puz_object):

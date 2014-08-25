@@ -8,7 +8,7 @@ import crossword
 class IPUZUnitTest(unittest.TestCase):
 
     def test_read_first_ipuz_fixture(self):
-        with open('fixtures/first.ipuz') as f:
+        with open('fixtures/ipuz/first.ipuz') as f:
             ipuz_dict = ipuz.read(f.read())
 
         puzzle = crossword.from_ipuz(ipuz_dict)
@@ -38,7 +38,7 @@ class IPUZUnitTest(unittest.TestCase):
         self.assertEqual(puzzle[6, 0].solution, "Z")
 
     def test_read_example_ipuz_fixture(self):
-        with open('fixtures/example.ipuz') as f:
+        with open('fixtures/ipuz/example.ipuz') as f:
             ipuz_dict = ipuz.read(f.read())
 
         puzzle = crossword.from_ipuz(ipuz_dict)
@@ -46,7 +46,7 @@ class IPUZUnitTest(unittest.TestCase):
         self.assertEqual(puzzle.empty, "0")
 
     def test_read_and_write_round_trip(self):
-        with open('fixtures/example.ipuz') as f:
+        with open('fixtures/ipuz/example.ipuz') as f:
             ipuz_dict = ipuz.read(f.read())
 
         puzzle = crossword.from_ipuz(ipuz_dict)
@@ -60,7 +60,7 @@ class IPUZUnitTest(unittest.TestCase):
                 self.assertIsNone(value)
 
     def test_read_example_may_not_have_solution(self):
-        with open('fixtures/example.ipuz') as f:
+        with open('fixtures/ipuz/example.ipuz') as f:
             ipuz_dict = ipuz.read(f.read())
 
         del ipuz_dict["solution"]
@@ -69,7 +69,7 @@ class IPUZUnitTest(unittest.TestCase):
         self.assertEqual(puzzle[0, 0].solution, None)
 
     def test_read_example_may_not_have_all_cells_defined(self):
-        with open('fixtures/example.ipuz') as f:
+        with open('fixtures/ipuz/example.ipuz') as f:
             ipuz_dict = ipuz.read(f.read())
 
         ipuz_dict["puzzle"] = [row[:5] for row in ipuz_dict["puzzle"]]
@@ -79,7 +79,7 @@ class IPUZUnitTest(unittest.TestCase):
         self.assertEqual(puzzle[10, 10].solution, None)
 
     def test_read_example_may_not_have_clues(self):
-        with open('fixtures/example.ipuz') as f:
+        with open('fixtures/ipuz/example.ipuz') as f:
             ipuz_dict = ipuz.read(f.read())
 
         del ipuz_dict["clues"]["Across"]
@@ -89,7 +89,7 @@ class IPUZUnitTest(unittest.TestCase):
         self.assertEqual(list(puzzle.clues.down()), [])
 
     def test_write_to_ipuz_only_includes_empty_block(self):
-        with open('fixtures/example.ipuz') as f:
+        with open('fixtures/ipuz/example.ipuz') as f:
             ipuz_dict = ipuz.read(f.read())
 
         puzzle = crossword.from_ipuz(ipuz_dict)
