@@ -17,7 +17,7 @@ class FormatUnitTest(unittest.TestCase):
         self.assertNotIn('extensions', ipuz_dict)
 
     def test_to_puz_only_include_puz_specific_data(self):
-        with open('fixtures/first.ipuz') as f:
+        with open('fixtures/example.ipuz') as f:
             ipuz_dict = ipuz.read(f.read())
 
         puzzle = crossword.from_ipuz(ipuz_dict)
