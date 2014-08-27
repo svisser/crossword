@@ -5,6 +5,7 @@ Changelog
 ----------------
 
 * Added support for Python 3.2.
+* Added support for .puz puzzles.
 
 0.1.1 (August 19, 2014)
 -----------------------
