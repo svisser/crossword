@@ -1,15 +1,23 @@
+import ast
 from os import path
+import re
 from setuptools import setup
 
 here = path.abspath(path.dirname(__file__))
 
+_version_re = re.compile(r'__version__\s+=\s+(.*)')
+
 with open(path.join(here, 'README.rst')) as file_readme:
     long_description = file_readme.read()
+
+with open('crossword/__init__.py', 'rb') as f:
+    version = str(ast.literal_eval(_version_re.search(
+        f.read().decode('utf-8')).group(1)))
 
 
 setup(
     name='crossword',
-    version='0.1.2',
+    version=version,
     description='Python library for handling crossword puzzles',
     long_description=long_description,
     url='https://github.com/svisser/crossword',
