@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import sys
 
-PY3 = sys.version_info[0] == 3
+PY3 = sys.version_info[0] >= 3
 
 if PY3:
     range = range
