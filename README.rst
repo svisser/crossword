@@ -24,7 +24,10 @@ perform common operations on the grid, the words and the clues of the puzzle.
 The library is intended for American crossword style puzzles, such as the New York Times
 crossword, though variations within reason will also be supported.
 
-The library handles reading and writing to .ipuz files.
+The library handles reading and writing the following files:
+
+* Across Lite .puz files
+* ipuz .ipuz files
 
 
 Installation
@@ -198,7 +201,6 @@ works properly in each of them.
 Ideas for new features
 ----------------------
 
-* Add support for Across Lite .puz files (https://github.com/alexdej/puzpy)
 * Add support for Crossword Compiler .ccw files (http://crossword-compiler.com)
 * Add support for CrossDown .xwd files (http://www.crossdown.com/)
 * Add support for XPF files (http://www.xwordinfo.com/XPF/)
