@@ -35,7 +35,7 @@ class FormatUnitTest(unittest.TestCase):
         with self.assertRaises(crossword.CrosswordException):
             crossword.to_puz(puzzle)
 
-    @unittest.skipIf(not os.path.exists('../puzfiles/*.puz'),
+    @unittest.skipIf(not os.path.exists('../puzfiles/'),
                      'fixture files not found')
     def test_all_fixtures(self):
         for f in glob.glob('../puzfiles/*.puz'):
