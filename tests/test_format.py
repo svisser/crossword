@@ -1,3 +1,5 @@
+from __future__ import print_function
+import glob
 import unittest
 
 import ipuz
@@ -31,3 +33,12 @@ class FormatUnitTest(unittest.TestCase):
         puzzle = crossword.from_ipuz(ipuz_dict)
         with self.assertRaises(crossword.CrosswordException):
             crossword.to_puz(puzzle)
+
+    def test_all_fixtures(self):
+        for f in glob.glob('../puzfiles/*.puz'):
+            puz_obj = puz.read(f)
+            for attr in dir(puz_obj):
+                if not callable(getattr(puz_obj, attr)):
+                    eq = getattr(puz_obj, attr) == getattr(crossword.to_puz(crossword.from_puz(puz_obj)), attr)
+                    if not eq:
+                        print(attr, eq)
