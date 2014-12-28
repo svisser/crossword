@@ -40,8 +40,9 @@ class FormatUnitTest(unittest.TestCase):
     def test_all_fixtures(self):
         for f in glob.glob('../puzfiles/*.puz'):
             puz_obj = puz.read(f)
+            loaded_obj = crossword.to_puz(crossword.from_puz(puz_obj))
             for attr in dir(puz_obj):
                 if not callable(getattr(puz_obj, attr)):
-                    eq = getattr(puz_obj, attr) == getattr(crossword.to_puz(crossword.from_puz(puz_obj)), attr)
+                    eq = getattr(puz_obj, attr) == getattr(loaded_obj, attr)
                     if not eq:
                         print(attr, eq)
