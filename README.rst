@@ -1,22 +1,6 @@
 crossword
 =========
 
-.. image:: https://pypip.in/version/crossword/badge.svg
-    :target: https://pypi.python.org/pypi/crossword/
-    :alt: Latest Version
-
-.. image:: https://pypip.in/download/crossword/badge.svg
-    :target: https://pypi.python.org/pypi/crossword/
-    :alt: Downloads
-
-.. image:: https://pypip.in/py_versions/crossword/badge.svg
-    :target: https://pypi.python.org/pypi/crossword/
-    :alt: Supported Python versions
-
-.. image:: https://pypip.in/license/crossword/badge.svg
-    :target: https://pypi.python.org/pypi/crossword/
-    :alt: License
-
 Python library for handling crossword puzzles. This library provides a canonical data structure
 that can be used to represent crosswords in your application. It provides a Pythonic way to
 perform common operations on the grid, the words and the clues of the puzzle.
