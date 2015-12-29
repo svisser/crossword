@@ -147,9 +147,22 @@ A value of None may indicate that the default value is used (e.g., "#" for block
 Reading and writing crosswords
 ------------------------------
 
-You can read a crossword from an .ipuz file using:
+You can read a crossword from a `.puz` file using:
 
 .. code:: python
+
+    import crossword
+    import puz
+
+    puz_object = puz.read('chronicle_20140815.puz')
+    puzzle = crossword.from_puz(puz_object)
+
+You can read a crossword from an `.ipuz` file using:
+
+.. code:: python
+
+    import crossword
+    import ipuz
 
     with open('puzzle.ipuz') as puzzle_file:
         ipuz_dict = ipuz.read(puzzle_file.read())  # may raise ipuz.IPUZException
@@ -161,6 +174,9 @@ This requires the "ipuz" package to be installed: https://pypi.python.org/pypi/i
 You can write a crossword to an .ipuz file using:
 
 .. code:: python
+
+    import crossword
+    import ipuz
 
     ipuz_dict = crossword.to_ipuz(puzzle)
 
