@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 __title__ = 'crossword'
-__version__ = '0.1.2'
+__version__ = '0.1.3'
 __author__ = 'Simeon Visser'
 __email__ = 'simeonvisser@gmail.com'
 __license__ = 'MIT'

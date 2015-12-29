@@ -1,6 +1,12 @@
 Changelog
 =========
 
+0.1.3 (upcoming)
+----------------
+
+* Added support for Python 3.3, 3.4 and 3.5.
+* Fixed ability to use this package without having puzpy package installed.
+
 0.1.2 (December 12, 2014)
 -------------------------
 
