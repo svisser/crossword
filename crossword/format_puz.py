@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 import collections
 
-from puz import Puzzle
-
 from crossword import CrosswordException
 from crossword.compat import range
 from crossword.core import Crossword
@@ -76,6 +74,7 @@ def from_puz(puzzle):
 
 
 def to_puz(crossword):
+    from puz import Puzzle
     result = Puzzle()
     result.width = crossword.width
     result.height = crossword.height
