@@ -23,6 +23,18 @@ You can install using pip:
 
     $ pip install crossword
 
+If you want to use this package with `.puz` files you'll also need to install `puzpy`:
+
+.. code-block:: bash
+
+    $ pip install puzpy
+
+If you want to use this package with `.ipuz` files you'll also need to install `ipuz`:
+
+.. code-block:: bash
+
+    $ pip install ipuz
+
 
 Creating and modifying crosswords
 ---------------------------------
